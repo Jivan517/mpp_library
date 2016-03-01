@@ -28,7 +28,6 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
 //		LibraryMember member = new LibraryMember("John");
 //		Publication p = new Book(1, "1234","Gone with the Wind");
 //		LendableCopy c = new LendableCopy();
