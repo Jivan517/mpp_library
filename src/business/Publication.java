@@ -16,8 +16,7 @@ abstract public class Publication implements Serializable {
 	protected void setDateDue(LocalDate d) {
 		dateDue = d;
 	}
-	public Publication(String title) {
-		this.title = title;
+	public Publication() {
 		copies = new ArrayList();
 	}
 	public LocalDate getDateDue() {
@@ -26,8 +25,9 @@ abstract public class Publication implements Serializable {
 	public String getTitle() {
 		return title;
 	}
+	
 	public void addCopy(int copyid){
-		LendableCopy lc = new LendableCopy(copyid);
+		LendableCopy lc = new LendableCopy(copyid, this);
 		copies.add(lc);
 	}
 }
