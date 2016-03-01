@@ -21,10 +21,12 @@ public class LoginForm extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
-        Scene scene = new Scene(root, 300, 175);
-        primaryStage.setTitle("Login");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+		if(root != null){
+			Scene scene = new Scene(root, 300, 175);
+			primaryStage.setTitle("Login");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		}
 	}
 
 	@FXML protected void handleLoginButtonAction(ActionEvent event) {
