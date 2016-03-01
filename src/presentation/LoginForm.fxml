@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox id="vpane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="vpane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.LoginForm">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="288.0" text="Welcome to Librarian System" />
       <HBox alignment="CENTER" depthTest="DISABLE" prefHeight="52.0" prefWidth="289.0">
@@ -27,11 +27,11 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="254.0">
          <children>
-            <Button id="login" mnemonicParsing="false" text="Login">
+            <Button id="login" mnemonicParsing="false" onAction="#handleLoginButtonAction" text="Login">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin></Button>
-            <Button id="reset" mnemonicParsing="false" text="Reset" />
+            <Button id="reset" mnemonicParsing="false" onAction="#handleResetButtonAction" text="Reset" />
          </children>
       </HBox>
    </children>
