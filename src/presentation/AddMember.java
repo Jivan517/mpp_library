@@ -1,6 +1,8 @@
 package presentation;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,4 +19,12 @@ public class AddMember extends Application {
 		primaryStage.show();
 	}
 
+	@FXML protected void handleSubmitButtonAction(ActionEvent event) throws Exception {
+	       
+	   
+	}
+	@FXML protected void handleResetButtonAction(ActionEvent event) throws Exception {
+	       
+		   
+	}
 }
