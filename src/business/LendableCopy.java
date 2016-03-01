@@ -5,6 +5,9 @@ import java.io.Serializable;
 public class LendableCopy implements Serializable {
 	private Publication publication;
 	private int copyId; 
+	public LendableCopy(int cid){
+		copyId = cid;
+	}
 	public void setPublication(Publication publication) {
 		this.publication = publication;
 	}
