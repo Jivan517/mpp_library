@@ -15,9 +15,10 @@ import javafx.stage.Stage;
  
 public class LoginForm extends Application{
 	
-	@FXML private Text username, password;
-	@FXML private Button login, reset;
-	
+	@FXML private Text username;
+	@FXML private Text password;
+	@FXML private Button login;
+	@FXML private Button reset;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
@@ -26,9 +27,13 @@ public class LoginForm extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-
-	@FXML protected void handleLoginButtonAction(ActionEvent event) {
-       
+	public void startMainForm() throws Exception{
+		MainForm mf = new MainForm();
+		Stage stage = new Stage();
+		mf.start(stage);
+	}
+	@FXML protected void handleLoginButtonAction(ActionEvent event) throws Exception {
+       this.startMainForm();
     }
 	@FXML protected void handleResetButtonAction(ActionEvent event) {
         
