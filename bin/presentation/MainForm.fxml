@@ -11,17 +11,17 @@
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="319.0">
          <children>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="120.0" text="Add Member">
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddMemberButtonAction" prefHeight="27.0" prefWidth="120.0" text="Add Member">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" text="List Member">
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleListMemberButtonAction" text="List Member">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" text="Search Member">
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" text="Search Member">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
@@ -30,12 +30,12 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Add Book">
+            <Button mnemonicParsing="false" onAction="#handleAddBookButtonAction" text="Add Book">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Add Copy">
+            <Button mnemonicParsing="false" onAction="#handleAddCopyButtonAction" text="Add Copy">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>

@@ -19,6 +19,7 @@ public class LoginForm extends Application{
 	@FXML private Text password;
 	@FXML private Button login;
 	@FXML private Button reset;
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));

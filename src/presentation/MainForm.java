@@ -19,8 +19,10 @@ public class MainForm extends Application {
 		primaryStage.show();
 		
 	}
-	@FXML protected void handleAddMemberButtonAction(ActionEvent event) {
-	       
+	@FXML protected void handleAddMemberButtonAction(ActionEvent event) throws Exception {
+	       AddMember am = new AddMember();
+	       Stage stage = new Stage();
+			am.start(stage);
     }
 	@FXML protected void handleListMemberButtonAction(ActionEvent event) {
 	       

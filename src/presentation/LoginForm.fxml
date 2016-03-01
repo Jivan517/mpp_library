@@ -13,7 +13,7 @@
       <HBox alignment="CENTER" depthTest="DISABLE" prefHeight="52.0" prefWidth="289.0">
          <children>
             <Label alignment="CENTER" text="Username:" />
-            <TextField id="username" fx:id="password" prefHeight="12.0" prefWidth="112.0" />
+            <TextField id="username" prefHeight="12.0" prefWidth="112.0" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -22,16 +22,16 @@
       <HBox alignment="CENTER" prefHeight="37.0" prefWidth="185.0">
          <children>
             <Label text=" Password:" />
-            <TextField id="password" fx:id="username" prefHeight="27.0" prefWidth="113.0" />
+            <TextField id="password" prefHeight="27.0" prefWidth="113.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="254.0">
          <children>
-            <Button id="login" fx:id="login" mnemonicParsing="false" onAction="#handleLoginButtonAction" text="Login">
+            <Button id="login" mnemonicParsing="false" onAction="#handleLoginButtonAction" text="Login">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin></Button>
-            <Button id="reset" fx:id="reset" mnemonicParsing="false" onAction="#handleResetButtonAction" text="Reset" />
+            <Button id="reset" mnemonicParsing="false" onAction="#handleResetButtonAction" text="Reset" />
          </children>
       </HBox>
    </children>
