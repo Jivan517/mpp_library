@@ -24,21 +24,21 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		LibraryMember member = new LibraryMember("John");
-		
-		ArrayList<Author> authors = new ArrayList();
-		authors.add(new Author("Zalelam", "Ghee", "credentials", "he is bad guy!"));
-		
-		Publication p = new Book("ISBN", "1234", authors);
-		
-		LendableCopy c = new LendableCopy(343, p);
-		c.setPublication(p);
-		c.setCopyId(1);
-		member.checkout(c, LocalDate.now(), LocalDate.now().plus(30, ChronoUnit.DAYS));
-		
-		
-//		LoginForm lf = new LoginForm();
-//		lf.start(primaryStage);
+//		LibraryMember member = new LibraryMember("John");
+//		
+//		ArrayList<Author> authors = new ArrayList();
+//		authors.add(new Author("Zalelam", "Ghee", "credentials", "he is bad guy!"));
+//		
+//		Publication p = new Book("ISBN", "1234", authors);
+//		
+//		LendableCopy c = new LendableCopy(343, p);
+//		c.setPublication(p);
+//		c.setCopyId(1);
+//		member.checkout(c, LocalDate.now(), LocalDate.now().plus(30, ChronoUnit.DAYS));
+//		
+//		
+		LoginForm lf = new LoginForm();
+		lf.start(primaryStage);
 	}
 	
 
