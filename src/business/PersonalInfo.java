@@ -13,7 +13,7 @@ public class PersonalInfo implements Serializable{
 	private String phone = "";
 	private Address address;
 	
-	public PersonalInfo(String firstName, String lName, String phone, String street, String city, String state, String zip){
+	PersonalInfo(String firstName, String lName, String phone, String street, String city, String state, String zip){
 		this.firstName = firstName;
 		this.lastName = lName;
 		this.phone = phone;

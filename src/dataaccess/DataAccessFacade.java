@@ -5,7 +5,7 @@ import business.LibraryMember;
 public class DataAccessFacade  {
 	
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
-	private LibraryMemberDataAccess libraryMember;
+	private DataAccess libraryMember;
 	
 	public DataAccessFacade(){
 		this.libraryMember = new LibraryMemberDataAccess();
