@@ -13,6 +13,7 @@ abstract public class Publication implements Serializable {
 	public int numberOfCopies(){
 		return copies.size();
 	}
+	public abstract void save(); 
 	protected void setDateDue(LocalDate d) {
 		dateDue = d;
 	}
@@ -39,6 +40,7 @@ abstract public class Publication implements Serializable {
 			p = copies.get(i);
 			if(p.getCopyId() == copy.getCopyId()){
 				p.setAvailable(true);
+				this.save();
 				return ;
 			}
 		}

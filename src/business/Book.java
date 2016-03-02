@@ -17,7 +17,10 @@ public class Book extends Publication implements Serializable {
 	public void addAuthor(Author a){
 		authors.add(a);
 	}
-	
+	public void save(){
+		BookDataAccessFacade ba = new BookDataAccessFacade();
+		ba.write(this.isbn, this);
+	}
 //	public Book(String isbn, String title, ArrayList<Author> authors)
 //	{
 //		this.isbn = isbn;
