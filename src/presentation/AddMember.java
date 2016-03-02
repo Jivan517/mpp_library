@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 public class AddMember extends Application {
 
+	private Object sysUser = null;
 	@FXML private TextField txtmember_id;
 	@FXML private TextField txtFirstName;
 	@FXML private TextField txtLastName;
@@ -28,6 +29,7 @@ public class AddMember extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("AddMember.fxml"));
 		Scene scene = new Scene(root, 500, 400);
+		sysUser = primaryStage.getUserData();
 		primaryStage.setTitle("Add Library Member");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -48,11 +50,13 @@ public class AddMember extends Application {
 			LibraryMember member = new LibraryMember(memberId, firstName + " " + lastName);
 			
 			//This user will be the logged in user
-			SystemUser user = new SystemUser();
-			user.AddAdminRole();
-			if(user.isAdmin()){
-				AdminRole admin = new AdminRole();
-				admin.addMember(member);
+			SystemUser user = (SystemUser)sysUser;
+			if(user != null){
+				user.AddAdminRole();
+				if(user.isAdmin()){
+					AdminRole admin = new AdminRole();
+					admin.addMember(member);
+				}
 			}
 			
 			System.out.println("saved successfully!");

@@ -9,11 +9,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainForm extends Application {
+	
+	private Object sysUser = null;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("MainForm.fxml"));
 		Scene scene = new Scene(root, 500, 175);
+		sysUser = primaryStage.getUserData();
+		primaryStage.close();
 		primaryStage.setTitle("Librarian");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -22,6 +26,7 @@ public class MainForm extends Application {
 	@FXML protected void handleAddMemberButtonAction(ActionEvent event) throws Exception {
 	       AddMember am = new AddMember();
 	       Stage stage = new Stage();
+	       stage.setUserData(sysUser);
 			am.start(stage);
     }
 	@FXML protected void handleListMemberButtonAction(ActionEvent event) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.*?>
@@ -7,12 +8,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox id="vpane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.LoginForm">
+<VBox id="vpane" minHeight="400.0" minWidth="400.0" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.LoginForm">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="288.0" text="Welcome to Librarian System" />
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="288.0" text="Welcome to Library System">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <HBox alignment="CENTER" prefHeight="52.0" prefWidth="289.0">
+         <children>
+            <Label fx:id="txtLoginError" textFill="#eb0707">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
       <HBox alignment="CENTER" depthTest="DISABLE" prefHeight="52.0" prefWidth="289.0">
          <children>
-            <TextField fx:id="txtUsername" prefHeight="12.0" prefWidth="112.0" promptText="Username" />
+            <TextField fx:id="txtUsername" prefHeight="12.0" prefWidth="112.0" promptText="Username">
+               <HBox.margin>
+                  <Insets bottom="30.0" />
+               </HBox.margin></TextField>
          </children>
          <opaqueInsets>
             <Insets />
