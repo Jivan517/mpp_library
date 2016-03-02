@@ -1,37 +1,65 @@
 package business;
 
-public class Address {
-	private String street, city, zip, state;
+import java.io.Serializable;
 
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
+public class Address implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2240133962942272173L;
+	private String street = "";
+	private String city = "";
+	private String state = "";
+	private String zipCode = "";
+	
+	//package level access
+	Address(String street, String city, String state, String zip){
+		this.street = street;
+		this.city = city;
 		this.state = state;
+		this.zipCode = zip;
+		
 	}
-
-	public String getCity() {
-		return city;
+	
+	Address(){
+		
 	}
-
-	public void setCity(String city) {
+	
+	public String getStreet(){
+		return this.street;
+	}
+	
+	void setStreet(String street){
+		this.street = street;
+	}
+	
+	public String getCity(){
+		return this.city;
+	}
+	
+	void setCity(String city){
 		this.city = city;
 	}
-
-	public String getZip() {
-		return zip;
+	
+	public String getState(){
+		return this.state;
 	}
-
-	public void setZip(String zip) {
-		this.zip = zip;
+	
+	void setState(String state){
+		this.state = state;
 	}
-
-	public String getStreet() {
-		return street;
+	
+	public String getZipcode(){
+		return this.zipCode;
 	}
-
-	public void setStreet(String street) {
-		this.street = street;
+	
+	void setZipcode(String zip){
+		this.zipCode = zip;
+	}
+	
+	@Override
+	public String toString(){
+		return street + " " + city + " " + state + " " + zipCode;
 	}
 }
