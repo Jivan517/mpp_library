@@ -10,7 +10,7 @@ public class LendableCopy implements Serializable {
 	private static final long serialVersionUID = -6307098549062543163L;
 	private Publication publication;
 	private int copyId; 
-	
+	private boolean available;
 	public LendableCopy(int copyId, Publication p){
 		this.copyId = copyId;
 		publication = p;
@@ -23,6 +23,12 @@ public class LendableCopy implements Serializable {
 	}
 	public String toString() {
 		return publication.toString();
+	}
+	public boolean isAvailable() {
+		return available;
+	}
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 	
 }

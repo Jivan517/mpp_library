@@ -2,15 +2,17 @@ package business;
 
 import java.io.Serializable;
 import java.util.*;
+import dataaccess.*;
 
 public class Book extends Publication implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2007L;
 	
 	private String isbn;
-	private boolean available, popularity;
+	private boolean available;
+	private boolean popularity;
 	private String title;
 	private ArrayList<Author> authors;
 	
@@ -25,9 +27,9 @@ public class Book extends Publication implements Serializable {
 	}
 	
 	public static Book bookWithISBN(String s){
-		Book b = new Book(s);
+		BookDataAccessFacade ba = new BookDataAccessFacade();
+		Book b = (Book)ba.read(s);
 		return b;
-		
 	}
 	
 	public void isAvailable(boolean b) {
@@ -37,5 +39,11 @@ public class Book extends Publication implements Serializable {
 	@Override
 	public String toString() {
 		return " isbn: " + isbn + ", available: " + available;
+	}
+	public boolean isPopularity() {
+		return popularity;
+	}
+	public void setPopularity(boolean popularity) {
+		this.popularity = popularity;
 	}
 }
