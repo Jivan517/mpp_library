@@ -33,7 +33,7 @@ public class LoginForm extends Application{
 		Stage stage = new Stage();
 		mf.start(stage);
 	}
-	@FXML protected void handleLoginButtonAction(ActionEvent event) throws Exception {
+	@FXML protected void btnLoginAction(ActionEvent event) throws Exception {
        this.startMainForm();
     }
 	@FXML protected void handleResetButtonAction(ActionEvent event) {

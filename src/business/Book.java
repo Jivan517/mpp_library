@@ -11,7 +11,7 @@ public class Book extends Publication implements Serializable {
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 2007L;
+	private static final long serialVersionUID = 1L;
 	private String title;
 	private String isbn;
 	private boolean popularity;

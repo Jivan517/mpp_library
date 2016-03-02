@@ -14,7 +14,7 @@ public class DataAccessFacade  {
 
 	public DataAccessFacade(){
 		this.libraryMember = new LibraryMemberDataAccess();
-		this.book = new BookDataAccess();
+		this.book = new BookDataAccessFacade();
 		this.lendableCopy =  new LendableCopyDataAccess();
 	}
 
