@@ -5,40 +5,63 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
+import javafx.stage.*;
 public class AddCopyForm extends Application {
 	private Book book = null;
 	@FXML private TextField isbnText;
 	@FXML private TextField tcid;
 	@FXML private Label isbn, title,  copynum, author, popular;
 	@FXML private Label bid;
+	public void toast(String msg){
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Information");
+		alert.setHeaderText(msg);
+		alert.showAndWait();
+	}
 	@FXML protected void handleAddButtonAction(ActionEvent event) {
 		if(book == null){
-			System.out.println("No book selected");
+			toast("No book selected");
 			return;
 		}
-		int cid = Integer.parseInt(tcid.getText());
-		if(tcid.getText().length() <= 0 || cid <= 0){
-			System.out.println("You should enter the correct copy id");
+		if(tcid.getText().length() <= 0){
+			toast("You should enter the correct copy id");
+		}
+		int cid;
+
+		try{
+			cid = Integer.parseInt(tcid.getText());
+		}catch (NumberFormatException nfe)
+		{
+			cid = 0;
+		}
+		if(cid <= 0){
+			toast("You should enter the correct copy id");
 		}
 		book.addCopy(cid);
 		book.save();
+		this.setBookInfo();
 	}
 	@FXML protected void handleSearchButtonAction(ActionEvent event) {
 
 		book = Book.bookWithISBN(this.isbnText.getText());
 		if(book == null){
-			System.out.println("No such book");
+			toast("No such book");
 			return;
 		}
-		System.out.println("read one book");
+
+		this.setBookInfo();
+	}
+	public void setBookInfo(){
 		isbn.setText(book.getISBN());
 		title.setText(book.getTitle());
 		bid.setText(Integer.toString(book.getId()));
