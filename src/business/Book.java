@@ -13,7 +13,12 @@ public class Book extends Publication implements Serializable {
 	private String isbn;
 	private boolean popularity;
 	private ArrayList<Author> authors;
-	
+	public String getISBN(){
+		return isbn;
+	}
+	public void setISBN(String i){
+		this.isbn = i;
+	}
 	public void addAuthor(Author a){
 		authors.add(a);
 	}
