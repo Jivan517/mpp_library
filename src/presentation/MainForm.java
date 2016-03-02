@@ -33,8 +33,10 @@ public class MainForm extends Application {
 	@FXML protected void handleAddBookButtonAction(ActionEvent event) {
 	       
     }
-	@FXML protected void handleAddCopyButtonAction(ActionEvent event) {
-	       
+	@FXML protected void handleAddCopyButtonAction(ActionEvent event) throws Exception {
+	       AddCopyForm ac = new AddCopyForm();
+	       Stage stage = new Stage();
+	       ac.start(stage);
     }
 
 }

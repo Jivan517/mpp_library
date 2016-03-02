@@ -51,7 +51,7 @@ public class BookDataAccessFacade implements DataAccess {
 			in = new ObjectInputStream(Files.newInputStream(path));
 			book = (Book)in.readObject();
 		} catch(Exception e) {
-			e.printStackTrace();
+			
 		} finally {
 			if(in != null) {
 				try {
