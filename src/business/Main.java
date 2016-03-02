@@ -41,5 +41,4 @@ public class Main extends Application{
 		lf.start(primaryStage);
 	}
 	
-
 }
