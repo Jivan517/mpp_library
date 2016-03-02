@@ -8,7 +8,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import java.time.*;
 
@@ -24,7 +26,28 @@ public class BookForm extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
+	public void toast(String msg){
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Information");
+		alert.setHeaderText(msg);
+		alert.showAndWait();
+	}
 	@FXML protected void submitAction(ActionEvent event) throws Exception {
+		if(title.getText().length() == 0 || isbn.getText().length() == 0 || author.getText().length() == 0 || maxCheckoutLength.getText().length() == 0 || copyid.getText().length() == 0){
+			toast("All fields should not be empty!");
+			return;
+		}
+		if(Integer.parseInt(maxCheckoutLength.getText()) == 0 || Integer.parseInt(copyid.getText()) == 0){
+			toast("Maximum checkout length and Copy ID should be a number!");
+		}
+		char[] isb = isbn.getText().toCharArray();
+		for(int i = 0; i < isb.length; i++){
+			int c = isb[i];
+			if(c < '0' || c > '9'){
+				toast("ISBN can only contains numbers!");
+				return;
+			}
+		}
 	       Book book = new Book();
 	       book.setTitle(title.getText());
 	       book.setISBN(isbn.getText());
@@ -34,6 +57,8 @@ public class BookForm extends Application {
 	       book.setMaxCheckoutLength(Integer.parseInt(maxCheckoutLength.getText()));
 	       book.addCopy(Integer.parseInt(copyid.getText()));
 	       book.save();
+	       toast("Add book success!");
+	       handleResetButtonAction(null);
 	}
 		
 	@FXML protected void handleResetButtonAction(ActionEvent event) {
