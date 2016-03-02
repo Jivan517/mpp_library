@@ -1,29 +1,55 @@
 package business;
 
+import dataaccess.DataAccessFacade;
+
 public class AdminRole implements IRole, IAdminRole {
+	
+	DataAccessFacade accessFacade = new DataAccessFacade();
 
 	@Override
 	public boolean addCopy(LendableCopy copy) {
-		// TODO Auto-generated method stub
-		return false;
+		try{
+			accessFacade.saveLendableCopy(copy.getCopyId(), copy);
+			return true;
+		}
+		catch(Exception e){
+			return false;
+		}
 	}
 
 	@Override
 	public boolean addBook(Book book) {
-		// TODO Auto-generated method stub
-		return false;
+		try{
+			accessFacade.saveBook(book.getTitle(), book);
+			return true;
+		}
+		catch(Exception e){
+			return false;
+		}
 	}
 
 	@Override
 	public boolean addMember(LibraryMember member) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		try{
+			accessFacade.saveLibraryMember(member.getName(), member);
+			return true;
+		}
+		catch(Exception e){
+			return false;
+		}
 	}
 
 	@Override
 	public boolean editMember(LibraryMember member) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		try{
+			accessFacade.editLibraryMember(member.getName(), member);
+			return true;
+		}
+		catch(Exception e){
+			return false;
+		}
 	}
 
 }

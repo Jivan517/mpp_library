@@ -28,8 +28,13 @@ public class LibraryMember implements Serializable {
 		
 	}
 	
-	public void save(){
-		accessFacade.saveLibraryMember(this.name, this);
+	public CheckoutRecord getCheckoutRecord(){
+		return this.record;
+	}
+	
+	public String getName()
+	{
+		return this.name;
 	}
 
 	public String toString() {

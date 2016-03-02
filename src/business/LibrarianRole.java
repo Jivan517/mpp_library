@@ -2,12 +2,24 @@ package business;
 
 import java.time.LocalDate;
 
+import dataaccess.DataAccessFacade;
+
 public class LibrarianRole implements ILibrarianRole, IRole {
 
+	private DataAccessFacade accessFacade = new DataAccessFacade();
+	
+			
 	@Override
 	public boolean checkOut(LibraryMember member, LendableCopy copy, LocalDate dueDate, LocalDate checkoutDate) {
-		// TODO Auto-generated method stub
-		return false;
+		try{
+			
+			member.checkout(copy, checkoutDate, dueDate);			
+			accessFacade.saveCheckoutRecord(member.getName(), member.getCheckoutRecord());
+			return true;
+		}
+		catch(Exception e){
+			return false;
+		}
 	}
 
 }
