@@ -22,12 +22,35 @@ abstract public class Publication implements Serializable {
 	public LocalDate getDateDue() {
 		return dateDue;
 	}
-	public String getTitle() {
-		return title;
+	public LendableCopy checkoutCopy(){
+		LendableCopy p = null;
+		for(int i = 0; i < this.numberOfCopies(); i++){
+			p = copies.get(i);
+			if(p.isAvailable()){
+				p.setAvailable(false);
+				return p;
+			}
+		}
+		return null;
 	}
-	
+	public void checkinCopy(LendableCopy copy){
+		LendableCopy p = null;
+		for(int i = 0; i < this.numberOfCopies(); i++){
+			p = copies.get(i);
+			if(p.getCopyId() == copy.getCopyId()){
+				p.setAvailable(true);
+				return ;
+			}
+		}
+	}
 	public void addCopy(int copyid){
 		LendableCopy lc = new LendableCopy(copyid, this);
 		copies.add(lc);
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

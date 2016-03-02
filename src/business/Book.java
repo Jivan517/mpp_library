@@ -11,19 +11,21 @@ public class Book extends Publication implements Serializable {
 	private static final long serialVersionUID = 2007L;
 	
 	private String isbn;
-	private boolean available;
 	private boolean popularity;
-	private String title;
 	private ArrayList<Author> authors;
 	
-	public Book(String isbn, String title, ArrayList<Author> authors)
-	{
-		this.isbn = isbn;
-		this.title = title;
-		this.authors = authors;
+	public void addAuthor(Author a){
+		authors.add(a);
 	}
-	public Book(String isbn) {
-		this.isbn = isbn;
+	
+//	public Book(String isbn, String title, ArrayList<Author> authors)
+//	{
+//		this.isbn = isbn;
+//		this.title = title;
+//		this.authors = authors;
+//	}
+	public Book() {
+		authors = new ArrayList();
 	}
 	
 	public static Book bookWithISBN(String s){
@@ -32,13 +34,10 @@ public class Book extends Publication implements Serializable {
 		return b;
 	}
 	
-	public void isAvailable(boolean b) {
-		available = b;
-	}
 	
 	@Override
 	public String toString() {
-		return " isbn: " + isbn + ", available: " + available;
+		return " isbn: " + isbn;
 	}
 	public boolean isPopularity() {
 		return popularity;
