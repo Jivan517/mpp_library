@@ -72,6 +72,7 @@ public class AddCopyForm extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("AddCopyForm.fxml"));
 		Scene scene = new Scene(root, 500, 400);
+		primaryStage.setResizable(false);
 		primaryStage.setTitle("Add Library Member");
 		primaryStage.setScene(scene);
 		primaryStage.show();

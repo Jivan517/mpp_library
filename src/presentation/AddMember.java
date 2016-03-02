@@ -30,6 +30,7 @@ public class AddMember extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("AddMember.fxml"));
 		Scene scene = new Scene(root, 500, 400);
 		sysUser = primaryStage.getUserData();
+		primaryStage.setResizable(false);
 		primaryStage.setTitle("Add Library Member");
 		primaryStage.setScene(scene);
 		primaryStage.show();

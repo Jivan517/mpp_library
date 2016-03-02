@@ -22,6 +22,7 @@ public class BookForm extends Application {
 		// TODO Auto-generated method stub
 		Parent root = FXMLLoader.load(getClass().getResource("BookForm.fxml"));
 		Scene scene = new Scene(root, 600, 475);
+		primaryStage.setResizable(false);
 		primaryStage.setTitle("Add/Edit Book");
 		primaryStage.setScene(scene);
 		primaryStage.show();

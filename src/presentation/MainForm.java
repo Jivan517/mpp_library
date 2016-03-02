@@ -16,6 +16,7 @@ public class MainForm extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("MainForm.fxml"));
 		Scene scene = new Scene(root, 500, 175);
+		primaryStage.setResizable(false);
 		sysUser = primaryStage.getUserData();
 		primaryStage.close();
 		primaryStage.setTitle("Librarian");
@@ -30,6 +31,7 @@ public class MainForm extends Application {
 			am.start(stage);
     }
 	@FXML protected void handleListMemberButtonAction(ActionEvent event){
+		
     }
 	@FXML protected void handleSearchMemberButtonAction(ActionEvent event)  throws Exception {
 	       CheckOut co = new CheckOut();

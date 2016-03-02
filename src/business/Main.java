@@ -66,11 +66,8 @@ public class Main extends Application{
 
 		//FineRecord  rec = new FineRecord(member);
 		//accessFacade.saveFineRecord(member.getMemberId(), rec);
-		//LoginForm lf = new LoginForm();
-		//lf.start(primaryStage);
-
-		MainForm mf  = new MainForm();
-		mf.start(primaryStage);
+		LoginForm lf = new LoginForm();
+		lf.start(primaryStage);
 
 	}
 
