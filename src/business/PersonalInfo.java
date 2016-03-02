@@ -29,10 +29,16 @@ public class PersonalInfo implements Serializable{
 	}
 	
 	public String getFirstName(){
+		if(this.firstName == null){
+			return "";
+		}
 		return this.firstName;
 	}
 	
 	public String getLastName(){
+		if(this.lastName == null){
+			return "";
+		}
 		return this.lastName;
 	}
 	

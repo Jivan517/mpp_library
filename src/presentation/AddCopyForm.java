@@ -19,7 +19,6 @@ import javafx.stage.*;
 public class AddCopyForm extends Application {
 	private Book book = null;
 	@FXML private TextField isbnText;
-	@FXML private TextField tcid;
 	@FXML private Label isbn, title,  copynum, author, popular;
 	@FXML private Label bid;
 	public void toast(String msg){
@@ -33,21 +32,8 @@ public class AddCopyForm extends Application {
 			toast("No book selected");
 			return;
 		}
-		if(tcid.getText().length() <= 0){
-			toast("You should enter the correct copy id");
-		}
-		int cid;
-
-		try{
-			cid = Integer.parseInt(tcid.getText());
-		}catch (NumberFormatException nfe)
-		{
-			cid = 0;
-		}
-		if(cid <= 0){
-			toast("You should enter the correct copy id");
-		}
-		book.addCopy(cid);
+		
+		book.addCopy(book.numberOfCopies()+1);
 		book.save();
 		this.setBookInfo();
 	}
