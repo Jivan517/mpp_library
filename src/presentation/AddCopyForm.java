@@ -64,8 +64,9 @@ public class AddCopyForm extends Application {
 	public void setBookInfo(){
 		isbn.setText(book.getISBN());
 		title.setText(book.getTitle());
-		bid.setText(Integer.toString(book.getId()));
+		bid.setText(Long.toString(book.getId()));
 		copynum.setText(Integer.toString(book.numberOfCopies()));
+		author.setText(book.getAuthor());
 	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
