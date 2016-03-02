@@ -1,6 +1,6 @@
 package presentation;
 
-import java.awt.TextField;
+import javafx.scene.control.TextField;
 
 import business.AdminRole;
 import business.LibraryMember;
@@ -15,14 +15,14 @@ import javafx.stage.Stage;
 
 public class AddMember extends Application {
 
-	private TextField txtmember_id;
-	private TextField txtFirstName;
-	private TextField txtLastName;
-	private TextField txtStreet;
-	private TextField txtCity;
-	private TextField txtState;
-	private TextField txtZip;
-	private TextField txtPhone;	
+	@FXML private TextField txtmember_id;
+	@FXML private TextField txtFirstName;
+	@FXML private TextField txtLastName;
+	@FXML private TextField txtStreet;
+	@FXML private TextField txtCity;
+	@FXML private TextField txtState;
+	@FXML private TextField txtZip;
+	@FXML private TextField txtPhone;	
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -33,25 +33,34 @@ public class AddMember extends Application {
 		primaryStage.show();
 	}
 
-	@FXML protected void handleSubmitButtonAction(ActionEvent event) throws Exception {
-
-		String memberId = txtmember_id.getText();
-		String firstName = txtFirstName.getText();
-		String lastName  = txtLastName.getText();
-		String street = txtStreet.getText();
-		String state = txtState.getText();
-		String city = txtCity.getText();
-		String zipCode = txtZip.getText();
-		String phone = txtPhone.getText();
-		
-		LibraryMember member = new LibraryMember(memberId, firstName + " " + lastName);
-		
-		//This user will be the logged in user
-		SystemUser user = new SystemUser();
-		if(user.isAdmin()){
-			AdminRole admin = new AdminRole();
-			admin.addMember(member);
+	@FXML protected void handleSubmitButtonAction(ActionEvent event) throws Exception 
+	{
+		try{
+			String memberId = txtmember_id.getText();
+			String firstName = txtFirstName.getText();
+			String lastName  = txtLastName.getText();
+			String street = txtStreet.getText();
+			String state = txtState.getText();
+			String city = txtCity.getText();
+			String zipCode = txtZip.getText();
+			String phone = txtPhone.getText();
+			
+			LibraryMember member = new LibraryMember(memberId, firstName + " " + lastName);
+			
+			//This user will be the logged in user
+			SystemUser user = new SystemUser();
+			user.AddAdminRole();
+			if(user.isAdmin()){
+				AdminRole admin = new AdminRole();
+				admin.addMember(member);
+			}
+			
+			System.out.println("saved successfully!");
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println("an exception occurred!");
 		}
+		
 	   
 	}
 	@FXML protected void handleResetButtonAction(ActionEvent event) throws Exception {

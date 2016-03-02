@@ -1,6 +1,7 @@
 package business;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 	public class SystemUser implements IhaveRoles, Serializable{
@@ -13,7 +14,7 @@ import java.util.List;
 	private boolean islibrarian;
 	public long id;
 	public PersonalInfo info;
-	public List<IRole> userRoles;
+	public List<IRole> userRoles = new ArrayList<IRole>();
 	
 	public SystemUser(){
 		
