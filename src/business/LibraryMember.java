@@ -8,19 +8,25 @@ import dataaccess.LibraryMemberDataAccess;
 
 public class LibraryMember implements Serializable {
 	private CheckoutRecord record = new CheckoutRecord();
+	private String name;
+	private String memberId;
 	private transient DataAccessFacade accessFacade = new DataAccessFacade();
 	
-	public LibraryMember(String name) {
+	public LibraryMember(String memberId, String name) {
 		this.name = name;
+		this.memberId = memberId;
 	}
-	private String name;
+	
 	
 	public void checkout(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate) {
 		CheckoutRecordEntry entry = new CheckoutRecordEntry(copy, checkoutDate, dueDate);
 		record.addEntry(entry);
 		
-		accessFacade.saveLibraryMember(this.name, this);
+	}
+	
+	public void save(){
 		
+		accessFacade.saveLibraryMember(this.name, this);
 	}
 	
 	public String toString() {

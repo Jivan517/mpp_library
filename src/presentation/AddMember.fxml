@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.AddMember">
    <children>
+      <VBox prefHeight="40.0" prefWidth="414.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Add Library Member to System">
+               <VBox.margin>
+                  <Insets left="80.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="414.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="98.0" text="Member ID:">
+            <Label prefHeight="17.0" prefWidth="98.0" text="Member ID">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
@@ -61,7 +73,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="95.0" prefWidth="414.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="98.0" text="Telephone no:" />
+            <Label prefHeight="17.0" prefWidth="98.0" text="Telephone No." />
             <TextField />
          </children>
       </HBox>
