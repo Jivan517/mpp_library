@@ -18,6 +18,8 @@ public class Author implements Serializable{
 		this.credential = credential;
 		this.shortBio = shortBio;
 	}
-	
+	public String getFullname(){
+		return this.personalInfo.getFirstName() + " " + this.personalInfo.getLastName();
+	}
 
 }
