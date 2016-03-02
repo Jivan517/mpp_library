@@ -8,14 +8,23 @@ import java.util.*;
 
 public class FineEntry implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 12345654L;
 	private LendableCopy copy;
 	private LocalDate datePaid;
 	private LocalDate returnDate;
 	private double fineValue;
+
+
+	public FineEntry(LendableCopy copy, LocalDate datePaid, LocalDate returnDate, double fineValue,
+			CheckoutRecordEntry checkoutRecordEntry) {
+		super();
+		this.copy = copy;
+		this.datePaid = datePaid;
+		this.returnDate = returnDate;
+		this.fineValue = fineValue;
+		this.checkoutRecordEntry = checkoutRecordEntry;
+	}
+
 	private CheckoutRecordEntry checkoutRecordEntry;
 	public LendableCopy getCopy() {
 		return copy;

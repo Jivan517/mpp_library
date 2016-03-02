@@ -14,27 +14,64 @@ public class LibraryMember implements Serializable {
 	private String memberId;
 	private transient DataAccessFacade accessFacade = new DataAccessFacade();
 
-	
+
 	public LibraryMember(String memberId, String name) {
-	
+
 		this.name = name;
 		this.memberId = memberId;
 	}
-	
-	
+
+	public CheckoutRecord getRecord() {
+		return record;
+	}
+
+
+	public void setRecord(CheckoutRecord record) {
+		this.record = record;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
+
+	public DataAccessFacade getAccessFacade() {
+		return accessFacade;
+	}
+
+
+	public void setAccessFacade(DataAccessFacade accessFacade) {
+		this.accessFacade = accessFacade;
+	}
+
 	public void checkout(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate) {
 		CheckoutRecordEntry entry = new CheckoutRecordEntry(copy, checkoutDate, dueDate);
 		record.addEntry(entry);
-		
 	}
-	
-	public void save(){
-		accessFacade.saveLibraryMember(this.name, this);
+
+	public CheckoutRecord getCheckoutRecord(){
+		return this.record;
 	}
 
 	public String toString() {
 		return "Checkout record for library member " + name + ": " + record;
 	}
 
-	
+
 }

@@ -24,9 +24,12 @@ public class AddCopyForm extends Application {
 			System.out.println("No book selected");
 			return;
 		}
-		if(tcid.getText().length() <= 0 || Integer.parseInt(tcid.getText()) <= 0){
+		int cid = Integer.parseInt(tcid.getText());
+		if(tcid.getText().length() <= 0 || cid <= 0){
 			System.out.println("You should enter the correct copy id");
 		}
+		book.addCopy(cid);
+		book.save();
 	}
 	@FXML protected void handleSearchButtonAction(ActionEvent event) {
 

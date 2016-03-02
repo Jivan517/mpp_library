@@ -57,7 +57,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextField alignment="CENTER" prefHeight="27.0" prefWidth="349.0" promptText="New Copy ID" />
+            <TextField fx:id="tcid" alignment="CENTER" prefHeight="27.0" prefWidth="349.0" promptText="New Copy ID" />
          </children>
       </HBox>
       <HBox alignment="CENTER" />

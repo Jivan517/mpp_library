@@ -9,12 +9,14 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Date;
 
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import presentation.*;
 import javafx.application.Application;
-
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 public class Main extends Application{
 
@@ -41,15 +43,22 @@ public class Main extends Application{
 //		DataAccessFacade accessFacade = new DataAccessFacade();
 //		accessFacade.saveBook("bukk", b);
 
-		//accessFacade.saveLendableCopy(4455, c);
-//		System.out.println(accessFacade.readLendableCopy(4455));
-
-		//LibraryMember m = accessFacade.readLibraryMember("john.ser");
-		//System.out.println(m.toString());
-
 
 		LoginForm lf = new LoginForm();
 		lf.start(primaryStage);
+
+//		LoginForm lf = new LoginForm();
+//		lf.start(primaryStage);
+
+		//ArrayList<FineEntry> records = new ArrayList();
+		//records.add(new FineEntry(c, LocalDate.now(),LocalDate.now(),80, new CheckoutRecordEntry(c, LocalDate.now(), LocalDate.now())));
+
+		//FineRecord  rec = new FineRecord(member);
+		//accessFacade.saveFineRecord(member.getMemberId(), rec);
+		//LoginForm lf = new LoginForm();
+		//lf.start(primaryStage);
+
+
 	}
 
 }
