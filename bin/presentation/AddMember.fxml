@@ -38,43 +38,43 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="98.0" text="First Name" />
-            <TextField />
+            <TextField fx:id="txtFirstName" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="98.0" text="Last Name" />
-            <TextField />
+            <TextField fx:id="txtLastName" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="98.0" text="Street" />
-            <TextField />
+            <TextField fx:id="txtStreet" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="98.0" text="City" />
-            <TextField />
+            <TextField fx:id="txtCity" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="98.0" text="State" />
-            <TextField />
+            <TextField fx:id="txtState" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="98.0" text="zip" />
-            <TextField />
+            <TextField fx:id="txtZip" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="95.0" prefWidth="414.0">
          <children>
             <Label prefHeight="17.0" prefWidth="98.0" text="Telephone No." />
-            <TextField />
+            <TextField fx:id="txtPhone" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
