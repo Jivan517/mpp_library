@@ -37,14 +37,8 @@ public class Main extends Application{
 //		member.checkout(c, LocalDate.now(), LocalDate.now().plus(30, ChronoUnit.DAYS));
 //		
 //		
-		Book b = new Book();
-		b.setISBN("12233232");
-		b.setTitle("hello");
-		b.addCopy(123);
-		b.save();
-//		LoginForm lf = new LoginForm();
-//		lf.start(primaryStage);
+		LoginForm lf = new LoginForm();
+		lf.start(primaryStage);
 	}
 	
-
 }
