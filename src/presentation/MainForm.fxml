@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="210.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
+<VBox prefHeight="210.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
    <children>
       <HBox fx:id="hbox3" prefHeight="30.0" prefWidth="457.0">
          <children>
@@ -33,13 +33,10 @@
                </HBox.margin>
             </Button>
             <Button fx:id="btnAddCopy" mnemonicParsing="false" onAction="#handleAddCopyButtonAction" text="Add Copy">
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </Button>
+			</Button>
          </children>
       </HBox>
-      <HBox prefHeight="30.0" prefWidth="200.0">
+      <HBox prefHeight="30.0" prefWidth="509.0">
          <children>
             <Label text="Librarian Tasks">
                <font>
@@ -59,6 +56,11 @@
                </HBox.margin>
             </Button>
             <Button fx:id="btnSearchMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" text="Search Member">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" text="Checkout Book">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>

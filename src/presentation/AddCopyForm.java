@@ -1,6 +1,7 @@
 package presentation;
 
 import business.Book;
+import business.UILib;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,35 +20,16 @@ import javafx.stage.*;
 public class AddCopyForm extends Application {
 	private Book book = null;
 	@FXML private TextField isbnText;
-	@FXML private TextField tcid;
 	@FXML private Label isbn, title,  copynum, author, popular;
 	@FXML private Label bid;
-	public void toast(String msg){
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Information");
-		alert.setHeaderText(msg);
-		alert.showAndWait();
-	}
+	
 	@FXML protected void handleAddButtonAction(ActionEvent event) {
 		if(book == null){
-			toast("No book selected");
+			UILib.toast("No book selected");
 			return;
 		}
-		if(tcid.getText().length() <= 0){
-			toast("You should enter the correct copy id");
-		}
-		int cid;
-
-		try{
-			cid = Integer.parseInt(tcid.getText());
-		}catch (NumberFormatException nfe)
-		{
-			cid = 0;
-		}
-		if(cid <= 0){
-			toast("You should enter the correct copy id");
-		}
-		book.addCopy(cid);
+		
+		book.addCopy(book.numberOfCopies()+1);
 		book.save();
 		this.setBookInfo();
 	}
@@ -55,7 +37,7 @@ public class AddCopyForm extends Application {
 
 		book = Book.bookWithISBN(this.isbnText.getText());
 		if(book == null){
-			toast("No such book");
+			UILib.toast("No such book");
 			return;
 		}
 

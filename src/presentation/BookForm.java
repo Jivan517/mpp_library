@@ -56,7 +56,9 @@ public class BookForm extends Application {
 	       Author at = new Author(author.getText(), null, null, null);
 	       book.addAuthor(at);
 	       book.setMaxCheckoutLength(Integer.parseInt(maxCheckoutLength.getText()));
-	       book.addCopy(Integer.parseInt(copyid.getText()));
+	       for(int i = 0; i < Integer.parseInt(copyid.getText()); i++){
+	    	   book.addCopy(i+1);
+	       }
 	       book.save();
 	       toast("Add book success!");
 	       handleResetButtonAction(null);

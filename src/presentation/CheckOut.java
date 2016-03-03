@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import business.Author;
 import business.Book;
 import business.LibraryMember;
+import business.UILib;
 import dataaccess.DataAccessFacade;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -19,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -27,6 +29,7 @@ import javafx.stage.Stage;
 
 public class CheckOut extends Application implements Initializable
 {
+	private Book book;
 	@FXML
 	private TextField mem_id;
 	@FXML
@@ -47,6 +50,18 @@ public class CheckOut extends Application implements Initializable
 	private TableColumn<Book, String> title;
 
 
+	@FXML private Label isbn, btitle,  copynum, author, popular, availablenum;
+	@FXML private Label bid;
+	
+	public void setBookInfo(){
+		isbn.setText(book.getISBN());
+		btitle.setText(book.getTitle());
+		bid.setText(Long.toString(book.getId()));
+		copynum.setText(Integer.toString(book.numberOfCopies()));
+		author.setText(book.getAuthor());
+		availablenum.setText(Integer.toString(book.getAvailableNumber()));
+		
+	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("CheckOut.fxml"));
@@ -72,7 +87,13 @@ public class CheckOut extends Application implements Initializable
 
 		String isbn_number = isbn_num.getText();
 
-		System.out.println(isbn_number);
+		book = Book.bookWithISBN(isbn_number);
+		if(book == null){
+			UILib.toast("No such book");
+			return;
+		}
+
+		this.setBookInfo();
 
 	}
 
