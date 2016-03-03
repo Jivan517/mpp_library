@@ -62,7 +62,10 @@ public class MainForm extends Application {
 	       stage.setUserData(sysUser);
 	       ms.start(stage);
  }
-	@FXML protected void handleListMemberButtonAction(ActionEvent event){
+	@FXML protected void handleListMemberButtonAction(ActionEvent event) throws Exception{
+	       ListMembers ms = new ListMembers();
+	       Stage stage = new Stage();
+	       ms.start(stage);
 
     }
 	@FXML protected void handleSearchMemberButtonAction(ActionEvent event)  throws Exception {

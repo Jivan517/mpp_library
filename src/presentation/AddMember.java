@@ -19,7 +19,7 @@ public class AddMember extends Application {
 
 	private static Object sysUser = null;
 	public static String firstName;
-	@FXML public static TextField txtmember_id;
+	@FXML private TextField txtmember_id;
 	@FXML private TextField txtFirstName;
 	@FXML private TextField txtLastName;
 	@FXML private TextField txtStreet;
@@ -45,11 +45,9 @@ public class AddMember extends Application {
 		txtFirstName= new TextField();
 		txtFirstName.setText(member.getFirstName());
 		System.out.println(member.getFirstName());
-		//System.out.println("1");
 		txtLastName= new TextField();
 		txtLastName.setText(member.getLastName());
-		//System.out.println("1");
-	
+
 		Address add = member.getAddress();
 		txtStreet= new TextField();
 		txtStreet.setText(add.getStreet());
@@ -64,7 +62,7 @@ public class AddMember extends Application {
 		txtmember_id.setDisable(true);
 	}
 	@Override
-	
+
 	public void init() throws Exception {
 		System.out.println("init!");
 		if(member!=null){
@@ -154,8 +152,6 @@ public class AddMember extends Application {
 			e.printStackTrace();
 			toast("An error occurred!");
 		}
-
-
 	}
 
 	public void alertSuccess(String msg){

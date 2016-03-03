@@ -1,5 +1,6 @@
 package dataaccess;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -7,6 +8,8 @@ import java.io.ObjectOutputStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 import business.LibraryMember;
 
@@ -41,6 +44,7 @@ public class LibraryMemberDataAccess implements DataAccess {
 		}
 	}
 
+
 	@Override
 	public Object read(String memberID) {
 		ObjectInputStream in = null;
@@ -59,6 +63,36 @@ public class LibraryMemberDataAccess implements DataAccess {
 			}
 		}
 		return member;
+	}
+
+
+
+	public List<LibraryMember> readAllMembers() {
+		ObjectInputStream in = null;
+		List<LibraryMember> lm = new ArrayList<>();
+
+		LibraryMember member = null;
+		try {
+
+			File f = new File(OUTPUT_DIR);
+
+			for(File ff: f.listFiles())
+			{
+				Path path = FileSystems.getDefault().getPath(OUTPUT_DIR,ff.getName());
+				in = new ObjectInputStream(Files.newInputStream(path));
+				member = (LibraryMember)in.readObject();
+				lm.add(member);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(in != null) {
+				try {
+					in.close();
+				} catch(Exception e) {}
+			}
+		}
+		return lm;
 	}
 
 }

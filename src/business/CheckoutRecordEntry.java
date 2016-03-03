@@ -16,7 +16,6 @@ public class CheckoutRecordEntry implements Serializable {
 	private LocalDate dueDate;
 	private boolean returned;
 
-
 	public CheckoutRecordEntry(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate){
 		this.copy = copy;
 		this.checkoutDate = checkoutDate;

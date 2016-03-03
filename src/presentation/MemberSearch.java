@@ -46,7 +46,7 @@ public class MemberSearch extends Application{
 	}
 	/*@FXML protected void handleSubmitButtonAction(ActionEvent event) throws Exception
 	{
-		
+
 	}*/
 	private void test() throws Exception{
 		search("1");
@@ -86,7 +86,7 @@ public class MemberSearch extends Application{
 		//txtPhone= new TextField();
 		txtPhone.setText(member.getPhone());
 		txtmember_id.setDisable(true);
-		
+
 	}
 	@FXML protected void handleSubmitButtonAction(ActionEvent event) throws Exception
 	{
@@ -99,7 +99,7 @@ public class MemberSearch extends Application{
 			String city = txtCity.getText();
 			String zipCode = txtZip.getText();
 			String phone = txtPhone.getText();
-			
+
 			if(memberId.length() == 0 || firstName.length() == 0 || lastName.length() == 0){
 				toast("MemberId, FirstName and LastName fields should not be empty!");
 				return;
@@ -107,8 +107,8 @@ public class MemberSearch extends Application{
 			if(zipCode != "" && Integer.parseInt(zipCode) == 0 ){
 				toast("Please, enter valid zipcode!");
 			}
-			
-			
+
+
 			LibraryMember member = new LibraryMember(memberId, firstName, lastName, phone, street, city, state, zipCode);
 
 			//This user will be the logged in user
@@ -119,19 +119,19 @@ public class MemberSearch extends Application{
 					AdminRole admin = new AdminRole();
 					admin.addMember(member);
 				}
-				
+
 			}else{
 				toast("The logged in user is expired!");
 				return;
 			}
-			
+
 			alertSuccess("Library member saved successfully!");
 			clearFields();
 		}
 		catch(NumberFormatException e){
 			toast("Please, enter valid zipcode!");
 		}
-		
+
 		catch(Exception e){
 			e.printStackTrace();
 			toast("An error occurred!");
@@ -145,19 +145,19 @@ public class MemberSearch extends Application{
 		alert.setHeaderText(msg);
 		alert.showAndWait();
 	}
-	
+
 	public void toast(String msg){
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setTitle("Warning");
 		alert.setHeaderText(msg);
 		alert.showAndWait();
 	}
-	
+
 	@FXML protected void handleResetButtonAction(ActionEvent event) throws Exception {
 
 		clearFields();
 	}
-	
+
 	private void clearFields(){
 		txtmember_id.setText("");
 		txtFirstName.setText("");
@@ -172,7 +172,7 @@ public class MemberSearch extends Application{
 	@FXML protected void btnSearchClicked (ActionEvent e) throws Exception {
 		try{
 			String memberID = txtMemberID.getText();
-		
+
 		if(memberID=="")
 		{
 			UILib.toast("Please enter the Library Member ID!");
@@ -190,6 +190,6 @@ public class MemberSearch extends Application{
 		//UILib.toast("clicked!");
 
 	}
-	
-	
+
+
 }
