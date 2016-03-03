@@ -43,7 +43,7 @@
                   <Insets left="20.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="author" prefHeight="27.0" prefWidth="309.0">
+            <TextField fx:id="author" editable="false" prefHeight="27.0" prefWidth="309.0">
                <VBox.margin>
                   <Insets bottom="20.0" left="30.0" right="20.0" />
                </VBox.margin>
@@ -97,22 +97,22 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label contentDisplay="CENTER" text="Credential">
+                              <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="88.0" text="Credential">
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="credential" prefHeight="27.0" prefWidth="188.0" />
+                              <TextField fx:id="credential" prefHeight="27.0" prefWidth="169.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="BIO">
+                              <Label prefHeight="17.0" prefWidth="88.0" text="BIO">
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="bio" prefHeight="27.0" prefWidth="224.0" />
+                              <TextField fx:id="bio" prefHeight="27.0" prefWidth="167.0" />
                            </children>
                         </HBox>
                      </children>
@@ -134,7 +134,7 @@
                   <Insets bottom="20.0" left="30.0" right="20.0" />
                </VBox.margin>
             </TextField>
-            <Label text="Copy Num">
+            <Label text="Copy Number">
                <VBox.margin>
                   <Insets left="20.0" />
                </VBox.margin>

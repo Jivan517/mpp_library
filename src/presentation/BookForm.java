@@ -62,6 +62,9 @@ public class BookForm extends Application {
 				return;
 			}
 		}
+		if(book == null){
+			book = new Book();
+		}
 	       
 	       book.setTitle(title.getText());
 	       book.setISBN(isbn.getText());
