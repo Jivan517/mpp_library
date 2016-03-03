@@ -53,13 +53,15 @@ public class Main extends Application{
 //		LoginForm lf = new LoginForm();
 //		lf.start(primaryStage);
 
-		ArrayList<FineEntry> records = new ArrayList();
-		records.add(new FineEntry(c, LocalDate.now(),LocalDate.now(),80, new CheckoutRecordEntry(c, LocalDate.now(), LocalDate.now())));
+		//ArrayList<FineEntry> records = new ArrayList();
+		//records.add(new FineEntry(c, LocalDate.now(),LocalDate.now(),80, new CheckoutRecordEntry(c, LocalDate.now(), LocalDate.now())));
 
-		FineRecord  rec = new FineRecord(member);
-		accessFacade.saveFineRecord(member.getMemberId(), rec);
+		//FineRecord  rec = new FineRecord(member);
+		//accessFacade.saveFineRecord(member.getMemberId(), rec);
 		//LoginForm lf = new LoginForm();
 		//lf.start(primaryStage);
+
+
 	}
 
 }

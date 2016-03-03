@@ -21,7 +21,6 @@ public class LibraryMember implements Serializable {
 		this.memberId = memberId;
 	}
 
-
 	public CheckoutRecord getRecord() {
 		return record;
 	}
