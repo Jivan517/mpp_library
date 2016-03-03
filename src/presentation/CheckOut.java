@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -32,7 +33,7 @@ public class CheckOut extends Application implements Initializable
 {
 	private Book book;
 	private LibraryMember currentMem;
-
+	@FXML private Label memberName;
 	@FXML
 	private TextField mem_id;
 	@FXML
@@ -50,6 +51,8 @@ public class CheckOut extends Application implements Initializable
 	@FXML
 	private TableColumn<CheckoutRecordEntry, String> title;
 
+	@FXML
+	private TableColumn<CheckoutRecordEntry, Button> checkin;
 
 	@FXML private Label isbn, btitle,  copynum, author, popular, availablenum;
 	@FXML private Label bid;
@@ -81,10 +84,12 @@ public class CheckOut extends Application implements Initializable
 		DataAccessFacade accessFacade = new DataAccessFacade();
 		LibraryMember lm = (LibraryMember) accessFacade.readLibraryMember(memberId);
 
-		if(lm!=null)
+		if(lm!=null){
+			memberName.setText(lm.getFirstName() + " " + lm.getLastName());
 			populateTable(memberId, lm);
-		else
+		}else{
 			UILib.toast("No such Library Member!");
+		}
 	}
 
 	ObservableList<CheckoutRecordEntry> b;
@@ -101,15 +106,15 @@ public class CheckOut extends Application implements Initializable
 				b.add(e);
 			}
 
-				title.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("title"));
-				due_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("checkoutDate"));
-				checkout_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("checkoutDate"));
-
-				checkout_records.setItems(b);
+			title.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("title"));
+			due_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("checkoutDate"));
+			checkout_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("checkoutDate"));
+			
+			checkout_records.setItems(b);
 
 		}
-		else
-			UILib.toast("No Entry For this Library Member!");
+//		else
+//			UILib.toast("No Entry For this Library Member!");
 	}
 
 	@FXML protected void handleSearchBookCopy(ActionEvent event) throws Exception {

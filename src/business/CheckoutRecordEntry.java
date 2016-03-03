@@ -14,6 +14,7 @@ public class CheckoutRecordEntry implements Serializable {
 	private String title;
 	private LocalDate checkoutDate;
 	private LocalDate dueDate;
+	private boolean returned;
 
 
 	public CheckoutRecordEntry(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate){
