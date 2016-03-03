@@ -13,8 +13,8 @@ public class Author implements Serializable{
 	private String credential;
 	private String shortBio;
 	
-	public Author(String firstName, String lName, String credential, String shortBio){
-		this.personalInfo = new PersonalInfo(firstName, lName);
+	public Author(String firstName, String lName, String credential, String shortBio, String street, String city, String state, String zip, String tel){
+		this.personalInfo = new PersonalInfo(firstName, lName, tel, street, city, state, zip);
 		this.credential = credential;
 		this.shortBio = shortBio;
 	}

@@ -120,7 +120,7 @@ public class CheckOut extends Application implements Initializable
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		List<Author> as = new ArrayList<>();
-		as.add(new Author("Auth", "Auth", "cred", "Bio"));
+		as.add(new Author("Auth", "Auth", "cred", "Bio", "street", "city", "state", "zip", "1333333"));
 
 		ObservableList<Book> b = FXCollections.observableArrayList(
 				new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as));

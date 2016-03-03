@@ -14,8 +14,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import java.time.*;
 
-public class BookForm extends Application {
+public class BookForm extends Application implements AddAuthorDelegate {
 
+	private Book book;
 	@FXML private TextField title, isbn, author, maxCheckoutLength, copyid;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -26,6 +27,7 @@ public class BookForm extends Application {
 		primaryStage.setTitle("Add/Edit Book");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		book = new Book();
 	}
 	public void toast(String msg){
 		Alert alert = new Alert(AlertType.INFORMATION);
@@ -49,12 +51,10 @@ public class BookForm extends Application {
 				return;
 			}
 		}
-	       Book book = new Book();
+	       
 	       book.setTitle(title.getText());
 	       book.setISBN(isbn.getText());
 	       book.setId(System.nanoTime()/1000);
-	       Author at = new Author(author.getText(), null, null, null);
-	       book.addAuthor(at);
 	       book.setMaxCheckoutLength(Integer.parseInt(maxCheckoutLength.getText()));
 	       for(int i = 0; i < Integer.parseInt(copyid.getText()); i++){
 	    	   book.addCopy(i+1);
@@ -71,5 +71,14 @@ public class BookForm extends Application {
 	        maxCheckoutLength.setText("");
 	        copyid.setText("");
 	}
-	
+	@FXML protected void handleAddAuthorButtonAction(ActionEvent event) throws Exception {
+		AuthorForm af = new AuthorForm(this);
+		Stage stage = new Stage();
+		af.start(stage);
+	}
+	public void addAuthor(Author a){
+		book.addAuthor(a);
+		System.out.println(a.getFullname());
+		author.setText(a.getFullname());
+	}
 }
