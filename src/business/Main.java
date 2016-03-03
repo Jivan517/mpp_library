@@ -24,6 +24,7 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+
 		LibraryMember member = new LibraryMember("John4");
 
 		ArrayList<Author> authors = new ArrayList();
@@ -49,7 +50,9 @@ public class Main extends Application{
 
 //		LoginForm lf = new LoginForm();
 //		lf.start(primaryStage);
-	}
 
+		LoginForm lf = new LoginForm();
+		lf.start(primaryStage);
+	}
 
 }
