@@ -3,6 +3,7 @@ package presentation;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import business.Address;
 import business.AdminRole;
 import business.LibraryMember;
 import business.SystemUser;
@@ -17,7 +18,7 @@ import javafx.stage.Stage;
 public class AddMember extends Application {
 
 	private static Object sysUser = null;
-	@FXML private TextField txtmember_id;
+	@FXML public static TextField txtmember_id;
 	@FXML private TextField txtFirstName;
 	@FXML private TextField txtLastName;
 	@FXML private TextField txtStreet;
@@ -25,16 +26,70 @@ public class AddMember extends Application {
 	@FXML private TextField txtState;
 	@FXML private TextField txtZip;
 	@FXML private TextField txtPhone;
+	private LibraryMember member;
+public AddMember(){
+	member=null;
+}
+public AddMember(LibraryMember member){
+	/*
+	
+	*/
+	this.member = member;
+}
+private void initMember(){
+
+	System.out.println(member.getMemberId());
+	txtmember_id= new TextField();
+	txtmember_id.setText(member.getMemberId());
+	txtmember_id.commitValue();
+	System.out.println("1");
+	txtFirstName= new TextField();
+	txtFirstName.setText(member.getFirstName());
+	System.out.println(member.getFirstName());
+	//System.out.println("1");
+	txtLastName= new TextField();
+	txtLastName.setText(member.getLastName());
+	//System.out.println("1");
+
+	Address add = member.getAddress();
+	txtStreet= new TextField();
+	txtStreet.setText(add.getStreet());
+	txtState= new TextField();
+	txtState.setText(add.getState());
+	txtCity= new TextField();
+	txtCity.setText(add.getCity());
+	txtZip= new TextField();
+	txtZip.setText(add.getZipcode());
+	txtPhone= new TextField();
+	txtPhone.setText("123123");
+	txtmember_id.setDisable(true);
+}
+@Override
+
+public void init() throws Exception {
+	System.out.println("init!");
+	if(member!=null){
+		initMember();
+	}
+}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+
 		Parent root = FXMLLoader.load(getClass().getResource("AddMember.fxml"));
 		Scene scene = new Scene(root, 500, 400);
 		sysUser = primaryStage.getUserData();
+		primaryStage.show();
+		//if(member!=null){
+		//	initMember();
+		//}	
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Add Library Member");
 		primaryStage.setScene(scene);
-		primaryStage.show();
+		if(member!=null){
+			initMember();
+		}
+	
 	}
 
 	@FXML protected void handleSubmitButtonAction(ActionEvent event) throws Exception

@@ -18,7 +18,7 @@ public class LoginHelper {
 		SystemUser librarian1 = new SystemUser("Zalelam", "Get", "zalelam", "get");
 		librarian1.AddLibrarianRole();
 		
-		SystemUser librarian2 = new SystemUser("Mahamud", "Mahamud", "mahamud", "mahamud");
+		SystemUser librarian2 = new SystemUser("Mahmoud", "Mohamed", "mahmoud", "mohamed");
 		librarian2.AddLibrarianRole();
 		
 		//create one system user - with both roles
