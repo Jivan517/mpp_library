@@ -88,5 +88,7 @@ public LibraryMember(){
 	{
 		return accessFacade.readLibraryMember(id);
 	}
-
+	public String getPhone(){
+		return this.personalInfo.getPhone();
+	}
 }
