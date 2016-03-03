@@ -50,7 +50,7 @@ public class CheckOut extends Application implements Initializable
 	private TableColumn<Book, String> title;
 
 
-	@FXML private Label isbn, btitle,  copynum, author, popular;
+	@FXML private Label isbn, btitle,  copynum, author, popular, availablenum;
 	@FXML private Label bid;
 	
 	public void setBookInfo(){
@@ -59,6 +59,8 @@ public class CheckOut extends Application implements Initializable
 		bid.setText(Long.toString(book.getId()));
 		copynum.setText(Integer.toString(book.numberOfCopies()));
 		author.setText(book.getAuthor());
+		availablenum.setText(Integer.toString(book.getAvailableNumber()));
+		
 	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {

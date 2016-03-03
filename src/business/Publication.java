@@ -13,6 +13,16 @@ abstract public class Publication implements Serializable {
 	public int numberOfCopies(){
 		return copies.size();
 	}
+	public int getAvailableNumber(){
+		int ret = 0;
+		for(int i = 0; i < copies.size(); i++){
+			LendableCopy p = copies.get(i);
+			if(p.isAvailable()){
+				ret++;
+			}
+		}
+		return ret;
+	}
 	public abstract void save(); 
 	protected void setDateDue(LocalDate d) {
 		dateDue = d;
@@ -47,6 +57,7 @@ abstract public class Publication implements Serializable {
 	}
 	public void addCopy(int copyid){
 		LendableCopy lc = new LendableCopy(copyid, this);
+		lc.setAvailable(true);
 		copies.add(lc);
 	}
 	public String getTitle() {
