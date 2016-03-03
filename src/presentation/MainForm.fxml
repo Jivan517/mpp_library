@@ -1,46 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
+<VBox prefHeight="210.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="319.0">
+      <HBox fx:id="hbox3" prefHeight="30.0" prefWidth="457.0">
          <children>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddMemberButtonAction" prefHeight="27.0" prefWidth="120.0" text="Add Member">
+            <Label text="Administration Tasks">
+               <HBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children></HBox>
+      <HBox fx:id="hbox1" alignment="CENTER" prefHeight="100.0" prefWidth="319.0">
+         <children>
+            <Button fx:id="btnAddMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddMemberButtonAction" prefHeight="27.0" prefWidth="120.0" text="Add Member">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleListMemberButtonAction" text="List Member">
+            <Button fx:id="btnAddBook" mnemonicParsing="false" onAction="#handleAddBookButtonAction" text="Add Book">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" text="Search Member">
+            <Button fx:id="btnAddCopy" mnemonicParsing="false" onAction="#handleAddCopyButtonAction" text="Add Copy">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER">
+      <HBox prefHeight="30.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleAddBookButtonAction" text="Add Book">
+            <Label text="Librarian Tasks">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="hbox2" alignment="CENTER">
+         <children>
+            <Button fx:id="btnListMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleListMemberButtonAction" text="List Member">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleAddCopyButtonAction" text="Add Copy">
+            <Button fx:id="btnSearchMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" text="Search Member">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <HBox prefHeight="92.0" prefWidth="457.0" />
    </children>
 </VBox>

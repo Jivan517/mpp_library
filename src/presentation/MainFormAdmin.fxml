@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="210.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
    <children>
-      <HBox fx:id="hbox3" prefHeight="30.0" prefWidth="457.0">
+      <HBox fx:id="hbox3" prefHeight="20.0" prefWidth="457.0">
          <children>
             <Label text="Administration Tasks">
-               <HBox.margin>
-                  <Insets left="30.0" top="10.0" />
-               </HBox.margin>
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <HBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </HBox.margin>
             </Label>
          </children></HBox>
       <HBox fx:id="hbox1" alignment="CENTER" prefHeight="100.0" prefWidth="319.0">
@@ -33,32 +33,6 @@
                </HBox.margin>
             </Button>
             <Button fx:id="btnAddCopy" mnemonicParsing="false" onAction="#handleAddCopyButtonAction" text="Add Copy">
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
-      <HBox prefHeight="30.0" prefWidth="200.0">
-         <children>
-            <Label text="Librarian Tasks">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="30.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
-      <HBox fx:id="hbox2" alignment="CENTER">
-         <children>
-            <Button fx:id="btnListMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleListMemberButtonAction" text="List Member">
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="btnSearchMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" text="Search Member">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
