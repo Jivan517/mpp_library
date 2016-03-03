@@ -10,14 +10,19 @@ public class LibraryMember implements Serializable {
 	private static final long serialVersionUID = -2226197306790714013L;
 
 	private CheckoutRecord record = new CheckoutRecord();
-	private String name;
+	private PersonalInfo personalInfo;
 	private String memberId;
 	private transient DataAccessFacade accessFacade = new DataAccessFacade();
 
 
-	public LibraryMember(String memberId, String name) {
+	public LibraryMember(String memberId, String firstName, String lastName, String phone, String street, String city, String state, String zip) {
 
-		this.name = name;
+		this.personalInfo = new PersonalInfo(firstName, lastName, phone, street, city, state, zip);
+		this.memberId = memberId;
+	}
+	
+	public LibraryMember(String memberId, String firstName, String lastName){
+		this.personalInfo = new PersonalInfo(firstName, lastName);
 		this.memberId = memberId;
 	}
 
@@ -32,15 +37,9 @@ public class LibraryMember implements Serializable {
 
 
 	public String getName() {
-		return name;
+		return personalInfo.getName();
 	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
+	
 	public String getMemberId() {
 		return memberId;
 	}
@@ -70,7 +69,7 @@ public class LibraryMember implements Serializable {
 	}
 
 	public String toString() {
-		return "Checkout record for library member " + name + ": " + record;
+		return "Checkout record for library member " + personalInfo.getName() + ": " + record;
 	}
 
 

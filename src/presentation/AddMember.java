@@ -58,7 +58,7 @@ public class AddMember extends Application {
 			}
 			
 			
-			LibraryMember member = new LibraryMember(memberId, firstName + " " + lastName);
+			LibraryMember member = new LibraryMember(memberId, firstName, lastName, phone, street, city, state, zipCode);
 
 			//This user will be the logged in user
 			SystemUser user = (SystemUser)sysUser;
