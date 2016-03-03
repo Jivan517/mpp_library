@@ -72,9 +72,10 @@ public class BookForm extends Application implements AddAuthorDelegate {
 	        copyid.setText("");
 	}
 	@FXML protected void handleAddAuthorButtonAction(ActionEvent event) throws Exception {
-		AuthorForm af = new AuthorForm(this);
+		AuthorForm af = new AuthorForm();
 		Stage stage = new Stage();
 		af.start(stage);
+		af.setDelegate(this);
 	}
 	public void addAuthor(Author a){
 		book.addAuthor(a);

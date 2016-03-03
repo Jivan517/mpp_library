@@ -22,10 +22,11 @@ public class AuthorForm extends Application{
 	@FXML private TextField txtState;
 	@FXML private TextField txtZip;
 	@FXML private TextField txtPhone;
-	public AuthorForm(AddAuthorDelegate d){
-		this.aadelegate = d;
-	}
+
 	public void setDelegate(AddAuthorDelegate d){
+		if(d == null){
+			System.out.println("set delegate null");
+		}
 		this.aadelegate = d;
 	}
 	@Override
