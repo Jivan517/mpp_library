@@ -61,14 +61,13 @@ public class LibraryMember implements Serializable {
 		this.accessFacade = accessFacade;
 	}
 
-
 	public void checkout(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate) {
 		CheckoutRecordEntry entry = new CheckoutRecordEntry(copy, checkoutDate, dueDate);
 		record.addEntry(entry);
 	}
 
-	public void save(){
-		accessFacade.saveLibraryMember(this.name, this);
+	public CheckoutRecord getCheckoutRecord(){
+		return this.record;
 	}
 
 	public String toString() {
