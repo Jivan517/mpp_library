@@ -55,10 +55,17 @@ abstract public class Publication implements Serializable {
 			}
 		}
 	}
-	public void addCopy(int copyid){
+	public boolean addCopy(int copyid){
+		for(int i = 0; i < copies.size(); i++){
+			LendableCopy c = copies.get(i);
+			if(c.getCopyId() == copyid){
+				return false;
+			}
+		}
 		LendableCopy lc = new LendableCopy(copyid, this);
 		lc.setAvailable(true);
 		copies.add(lc);
+		return true;
 	}
 	public String getTitle() {
 		return title;
