@@ -20,7 +20,17 @@ public class Book extends Publication implements Serializable {
 	private List<Author> authors;
 	private int maxCheckoutLength;
 
-	
+	public String getAuthorsName(){
+		String ret = "";
+		for(int i = 0; i < authors.size(); i++){
+			Author a = authors.get(i);
+			ret += a.getFullname();
+			if(i != authors.size() - 1){
+				ret += ",";
+			}
+		}
+		return ret;
+	}
 	public Book(String isbn, String title, List<Author> authors)
 	{
 		this.isbn = isbn;
@@ -39,6 +49,14 @@ public class Book extends Publication implements Serializable {
 		this.isbn = i;
 	}
 	public void addAuthor(Author a){
+		if(a == null){
+			System.out.println("a error");
+			return;
+		}
+		if(authors == null){
+			System.out.println("array error");
+			return;
+		}
 		authors.add(a);
 	}
 	public void save(){

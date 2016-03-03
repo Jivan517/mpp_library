@@ -2,6 +2,7 @@ package presentation;
 
 import business.Author;
 import business.Book;
+import business.UILib;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,18 +13,28 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-import java.time.*;
 
-public class BookForm extends Application implements AddAuthorDelegate {
+
+
+public class BookForm extends Application {
 
 	private Book book;
+	@FXML private TextField credential, bio;
+	@FXML private TextField txtFirstName;
+	@FXML private TextField txtLastName;
+	@FXML private TextField txtStreet;
+	@FXML private TextField txtCity;
+	@FXML private TextField txtState;
+	@FXML private TextField txtZip;
+	@FXML private TextField txtPhone;
+
 	@FXML private TextField title, isbn, author, maxCheckoutLength, copyid;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		Parent root = FXMLLoader.load(getClass().getResource("BookForm.fxml"));
-		Scene scene = new Scene(root, 600, 475);
-		primaryStage.setResizable(false);
+		Scene scene = new Scene(root, 1000, 700);
+		primaryStage.setResizable(true);
 		primaryStage.setTitle("Add/Edit Book");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -64,22 +75,53 @@ public class BookForm extends Application implements AddAuthorDelegate {
 	       handleResetButtonAction(null);
 	}
 		
-	@FXML protected void handleResetButtonAction(ActionEvent event) {
+	@FXML public void handleResetButtonAction(ActionEvent event) {
 	        title.setText("");
 	        isbn.setText("");
 	        author.setText("");
 	        maxCheckoutLength.setText("");
 	        copyid.setText("");
+	        this.clearFields();
 	}
-	@FXML protected void handleAddAuthorButtonAction(ActionEvent event) throws Exception {
-		AuthorForm af = new AuthorForm();
-		Stage stage = new Stage();
-		af.start(stage);
-		af.setDelegate(this);
-	}
-	public void addAuthor(Author a){
+	@FXML public void handleAddAuthorButtonAction(ActionEvent event) throws Exception {
+		String firstName = txtFirstName.getText();
+		String lastName  = txtLastName.getText();
+		String street = txtStreet.getText();
+		String state = txtState.getText();
+		String city = txtCity.getText();
+		String zipCode = txtZip.getText();
+		String phone = txtPhone.getText();
+		String cred = credential.getText();
+		String sbio = bio.getText();
+		if(firstName.length() == 0 || lastName.length() == 0){
+			UILib.toast("MemberId, FirstName and LastName fields should not be empty!");
+			return;
+		}
+		if(zipCode != "" && Integer.parseInt(zipCode) == 0 ){
+			UILib.toast("Please, enter valid zipcode!");
+			return;
+		}
+		Author a = new Author(firstName, lastName, cred, sbio, street, state, city, zipCode, phone);
+		if(book == null){
+			book = new Book();
+		}
 		book.addAuthor(a);
-		System.out.println(a.getFullname());
-		author.setText(a.getFullname());
+		author.setText(book.getAuthorsName());
+		this.clearFields();
+	}
+
+	
+	private void clearFields(){
+		credential.setText("");
+		bio.setText("");
+		txtFirstName.setText("");
+		txtLastName.setText("");
+		txtStreet.setText("");
+		txtState.setText("");
+		txtCity.setText("");
+		txtZip.setText("");
+		txtPhone.setText("");
+
 	}
 }
+

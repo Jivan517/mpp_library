@@ -5,18 +5,17 @@ import java.io.Serializable;
 public class Address implements Serializable{
 
 	private static final long serialVersionUID = 2240133962942272173L;
-	private String street = "";
-	private String city = "";
-	private String state = "";
-	private String zipCode = "";
+	private String street ;
+	private String city;
+	private String state ;
+	private String zipCode ;
 
 	//package level access
-	Address(String street, String city, String state, String zip){
+	public Address(String street, String city, String state, String zip){
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zipCode = zip;
-
 	}
 
 	Address(){

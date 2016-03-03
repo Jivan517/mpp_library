@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 
 public class AuthorForm extends Application{
 
-	private AddAuthorDelegate aadelegate;
 	@FXML private TextField credential, bio;
 	@FXML private TextField txtFirstName;
 	@FXML private TextField txtLastName;
@@ -23,12 +22,7 @@ public class AuthorForm extends Application{
 	@FXML private TextField txtZip;
 	@FXML private TextField txtPhone;
 
-	public void setDelegate(AddAuthorDelegate d){
-		if(d == null){
-			System.out.println("set delegate null");
-		}
-		this.aadelegate = d;
-	}
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
@@ -61,11 +55,7 @@ public class AuthorForm extends Application{
 			return;
 		}
 		Author a = new Author(firstName, lastName, cred, sbio, street, state, city, zipCode, phone);
-		if(aadelegate != null){
-			aadelegate.addAuthor(a);
-		}else{
-			System.out.println("delegaet is null");
-		}
+		//todo: need fix
 	}
 	@FXML protected void handleResetButtonAction(ActionEvent event) throws Exception {
 

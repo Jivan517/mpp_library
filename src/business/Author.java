@@ -13,13 +13,26 @@ public class Author implements Serializable{
 	private String credential;
 	private String shortBio;
 	
+
 	public Author(String firstName, String lName, String credential, String shortBio, String street, String city, String state, String zip, String tel){
 		this.personalInfo = new PersonalInfo(firstName, lName, tel, street, city, state, zip);
-		this.credential = credential;
-		this.shortBio = shortBio;
+		this.setCredential(credential);
+		this.setShortBio(shortBio);
 	}
 	public String getFullname(){
 		return this.personalInfo.getFirstName() + " " + this.personalInfo.getLastName();
+	}
+	public String getShortBio() {
+		return shortBio;
+	}
+	public void setShortBio(String shortBio) {
+		this.shortBio = shortBio;
+	}
+	public String getCredential() {
+		return credential;
+	}
+	public void setCredential(String credential) {
+		this.credential = credential;
 	}
 
 }
