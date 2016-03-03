@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class MainForm extends Application {
 
-	private Object sysUser = null;
+	private static Object sysUser = null;
 	@FXML private Button btnAddMember;
 	@FXML private Button btnAddBoook;
 	@FXML private Button btnAddCopy;
@@ -53,7 +53,7 @@ public class MainForm extends Application {
 	       AddMember am = new AddMember();
 	       Stage stage = new Stage();
 	       stage.setUserData(sysUser);
-			am.start(stage);
+	       am.start(stage);
     }
 	@FXML protected void handleListMemberButtonAction(ActionEvent event){
 		

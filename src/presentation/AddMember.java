@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 public class AddMember extends Application {
 
-	private Object sysUser = null;
+	private static Object sysUser = null;
 	@FXML private TextField txtmember_id;
 	@FXML private TextField txtFirstName;
 	@FXML private TextField txtLastName;
@@ -68,15 +68,32 @@ public class AddMember extends Application {
 					AdminRole admin = new AdminRole();
 					admin.addMember(member);
 				}
+				
+			}else{
+				toast("The logged in user is expired!");
+				return;
 			}
-
-			System.out.println("\nsaved successfully!");
-		}catch(Exception e){
+			
+			alertSuccess("Library member saved successfully!");
+			clearFields();
+		}
+		catch(NumberFormatException e){
+			toast("Please, enter valid zipcode!");
+		}
+		
+		catch(Exception e){
 			e.printStackTrace();
-			System.out.println("\nan exception occurred!");
+			toast("An error occurred!");
 		}
 
 
+	}
+	
+	public void alertSuccess(String msg){
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Success");
+		alert.setHeaderText(msg);
+		alert.showAndWait();
 	}
 	
 	public void toast(String msg){
@@ -88,6 +105,10 @@ public class AddMember extends Application {
 	
 	@FXML protected void handleResetButtonAction(ActionEvent event) throws Exception {
 
+		clearFields();
+	}
+	
+	private void clearFields(){
 		txtmember_id.setText("");
 		txtFirstName.setText("");
 		txtLastName.setText("");
