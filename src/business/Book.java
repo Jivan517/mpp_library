@@ -11,23 +11,25 @@ public class Book extends Publication implements Serializable {
 	/**
 	 *
 	 */
-	private int id;
+	private long id;
 	private static final long serialVersionUID = 2007L;
 	private String title;
 	private String isbn;
 	private boolean popularity;
 	public boolean available;
 	private List<Author> authors;
+	private int maxCheckoutLength;
 
 	public Book(String isbn, String title, List<Author> authors)
 	{
 		this.isbn = isbn;
 		this.title = title;
 		this.authors = authors;
+		authors = new ArrayList();
 	}
 
-	public Book(String isbn) {
-		this.isbn = isbn;
+	public Book() {
+		authors = new ArrayList();
 	}
 	public String getISBN(){
 		return isbn;
@@ -58,7 +60,14 @@ public class Book extends Publication implements Serializable {
 	public void isAvailable(boolean b) {
 		available = b;
 	}
-
+	public String getAuthor(){
+		String ret = "";
+		for(int i = 0; i < authors.size(); i++){
+			Author a = authors.get(i);
+			ret += a.getFullname();
+		}
+		return ret;
+	}
 	@Override
 	public String toString() {
 		return " isbn: " + isbn;
@@ -70,11 +79,19 @@ public class Book extends Publication implements Serializable {
 		this.popularity = popularity;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public int getMaxCheckoutLength() {
+		return maxCheckoutLength;
+	}
+
+	public void setMaxCheckoutLength(int maxCheckoutLength) {
+		this.maxCheckoutLength = maxCheckoutLength;
 	}
 }
