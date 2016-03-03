@@ -11,25 +11,25 @@ import java.nio.file.Path;
 import business.LibraryMember;
 
 public class LibraryMemberDataAccess implements DataAccess {
-	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
-			+ "/src/dataaccess/storage/";
+	public static final String OUTPUT_DIR = System.getProperty("user.dir")
+			+ "/src/dataaccess/storage/librarymember/";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
-	
-	
+
+
 	@Override
 	public void write(String name, Object obj) {
 		ObjectOutputStream out = null;
 		try {
-			
+
 			LibraryMember member = (LibraryMember) obj;
-			
+
 			FileOutputStream fileOut = new FileOutputStream(OUTPUT_DIR + name + ".ser");
 			out = new ObjectOutputStream(fileOut);
 			out.writeObject(member);
 			out.close();
 			fileOut.close();
-			System.out.printf("Serialized data is saved in " + OUTPUT_DIR + name + ".ser");
-						
+			System.out.printf("\nSerialized library Member data is saved in " + OUTPUT_DIR + name + ".ser");
+
 		} catch(IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -39,7 +39,7 @@ public class LibraryMemberDataAccess implements DataAccess {
 				} catch(Exception e) {}
 			}
 		}
-		
+
 	}
 
 	@Override

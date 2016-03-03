@@ -1,6 +1,7 @@
 package dataaccess;
 
 import business.Book;
+import business.FineRecord;
 import business.LendableCopy;
 import business.LibraryMember;
 
@@ -16,6 +17,7 @@ public class DataAccessFacade  {
 		this.libraryMember = new LibraryMemberDataAccess();
 		this.book = new BookDataAccessFacade();
 		this.lendableCopy =  new LendableCopyDataAccess();
+		this.fines =  new FineRecordDataAccess();
 	}
 
 	public void saveLibraryMember(String name, LibraryMember member) {
@@ -41,6 +43,15 @@ public class DataAccessFacade  {
 
 	public LendableCopy readLendableCopy(int copyId) {
 		return (LendableCopy)lendableCopy.read(Integer.toString(copyId));
+	}
+
+
+	public void saveFineRecord(String memBerId, FineRecord records) {
+		this.fines.write(memBerId, records);
+	}
+
+	public FineRecord readFines(String memID) {
+		return (FineRecord)fines.read(memID);
 	}
 
 }

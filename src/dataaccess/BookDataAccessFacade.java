@@ -11,25 +11,25 @@ import java.nio.file.Path;
 import business.*;
 
 public class BookDataAccessFacade implements DataAccess {
-	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
+	public static final String OUTPUT_DIR = System.getProperty("user.dir")
 			+ "/src/dataaccess/storage/book/";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
-	
-	
+
+
 	@Override
 	public void write(String name, Object obj) {
 		ObjectOutputStream out = null;
 		try {
-			
+
 			Book book = (Book) obj;
-			
+
 			FileOutputStream fileOut = new FileOutputStream(OUTPUT_DIR + name);
 			out = new ObjectOutputStream(fileOut);
 			out.writeObject(book);
 			out.close();
 			fileOut.close();
-			System.out.printf("Serialized data is saved in " + OUTPUT_DIR + name );
-						
+			System.out.printf("\nSerialized Book data is saved in " + OUTPUT_DIR + name );
+
 		} catch(IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -39,7 +39,7 @@ public class BookDataAccessFacade implements DataAccess {
 				} catch(Exception e) {}
 			}
 		}
-		
+
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import business.LibraryMember;
 
 public class BookDataAccess implements DataAccess {
 	public static final String OUTPUT_DIR = System.getProperty("user.dir")
-			+ "/src/dataaccess/storage/";
+			+ "/src/dataaccess/storage/book/";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
 

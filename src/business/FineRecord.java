@@ -5,9 +5,6 @@ import java.util.*;
 
 public class FineRecord implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3333L;
 	private LibraryMember lmember;
 	private ArrayList<FineEntry> entries;

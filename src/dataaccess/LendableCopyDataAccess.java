@@ -30,7 +30,7 @@ public class LendableCopyDataAccess implements DataAccess {
 			out.writeObject(book);
 			out.close();
 			fileOut.close();
-			System.out.printf("Serialized data is saved in " + OUTPUT_DIR + copyId + ".ser");
+			System.out.printf("\nSerialized data is saved in " + OUTPUT_DIR + copyId + ".ser");
 
 		} catch(IOException e) {
 			e.printStackTrace();

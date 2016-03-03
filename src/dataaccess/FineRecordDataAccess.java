@@ -14,7 +14,7 @@ import business.LibraryMember;
 
 public class FineRecordDataAccess implements DataAccess {
 	public static final String OUTPUT_DIR = System.getProperty("user.dir")
-			+ "/src/dataaccess/storage/";
+			+ "/src/dataaccess/storage/finerecord/";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
 
@@ -29,7 +29,7 @@ public class FineRecordDataAccess implements DataAccess {
 			out.writeObject(fines);
 			out.close();
 			fileOut.close();
-			System.out.printf("Serialized data is saved in " + OUTPUT_DIR + name + ".ser");
+			System.out.printf("\nSerialized Fine data is saved in " + OUTPUT_DIR + name + ".ser");
 
 		} catch(IOException e) {
 			e.printStackTrace();

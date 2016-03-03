@@ -1,8 +1,9 @@
 package business;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SystemUser implements IhaveRoles {
+public class SystemUser implements IhaveRoles, Serializable{
 private boolean isadmin;
 private boolean islibrarian;
 public long id;
