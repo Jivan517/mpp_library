@@ -11,7 +11,8 @@ public class Book extends Publication implements Serializable {
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 1L;
+	private int id;
+	private static final long serialVersionUID = 2007L;
 	private String title;
 	private String isbn;
 	private boolean popularity;
@@ -44,7 +45,12 @@ public class Book extends Publication implements Serializable {
 
 	public static Book bookWithISBN(String s){
 		BookDataAccessFacade ba = new BookDataAccessFacade();
-		Book b = (Book)ba.read(s);
+		Book b = null;
+		try{
+			b = (Book)ba.read(s);
+		}catch(Exception e){
+			return null;
+		}
 		return b;
 
 	}
@@ -62,5 +68,13 @@ public class Book extends Publication implements Serializable {
 	}
 	public void setPopularity(boolean popularity) {
 		this.popularity = popularity;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

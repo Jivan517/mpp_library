@@ -9,14 +9,12 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Date;
 
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import presentation.*;
 import javafx.application.Application;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+
 import javafx.stage.Stage;
 public class Main extends Application{
 
@@ -27,6 +25,7 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
+//		LibraryMember member = new LibraryMember("323", "John4");
 //		LibraryMember member = new LibraryMember("3434", "John4");
 //
 //		ArrayList<Author> authors = new ArrayList();
@@ -46,9 +45,18 @@ public class Main extends Application{
 //		accessFacade.saveLibraryMember(member.getMemberId(), member);
 //		accessFacade.saveLendableCopy(4455, c);
 		//System.out.println(accessFacade.readLendableCopy(4455));
+		//accessFacade.saveLendableCopy(4455, c);
+//		System.out.println(accessFacade.readLendableCopy(4455));
 
 		//LibraryMember m = accessFacade.readLibraryMember("john.ser");
 		//System.out.println(m.toString());
+
+
+//		LoginForm lf = new LoginForm();
+//		lf.start(primaryStage);
+
+//		LoginForm lf = new LoginForm();
+//		lf.start(primaryStage);
 
 //		LoginForm lf = new LoginForm();
 //		lf.start(primaryStage);
