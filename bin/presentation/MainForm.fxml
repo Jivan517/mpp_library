@@ -20,7 +20,7 @@
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" text="Search Member">
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" text="Checkout Book">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
