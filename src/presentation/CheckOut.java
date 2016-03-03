@@ -1,20 +1,51 @@
 package presentation;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import business.Author;
+import business.Book;
+import business.LibraryMember;
+import dataaccess.DataAccessFacade;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class CheckOut extends Application
+public class CheckOut extends Application implements Initializable
 {
 	@FXML
 	private TextField mem_id;
 	@FXML
 	private TextField isbn_num;
+
+	@FXML
+	private TableView<Book> checkout_records;
+
+	@FXML
+	private TableColumn<Book, String> due_date;
+	@FXML
+	private TableColumn<Book, String> return_date;
+
+	@FXML
+	private TableColumn<Book, String> checkout_date;
+
+	@FXML
+	private TableColumn<Book, String> title;
+
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -29,7 +60,12 @@ public class CheckOut extends Application
 	@FXML protected void handleSearchMem(ActionEvent event) throws Exception {
 
 		String memberId = mem_id.getText();
-		System.out.println(memberId);
+
+		DataAccessFacade accessFacade = new DataAccessFacade();
+		LibraryMember lm = (LibraryMember) accessFacade.readLibraryMember(memberId);
+
+		System.out.println(lm.getName());
+
 	}
 
 	@FXML protected void handleSearchBookCopy(ActionEvent event) throws Exception {
@@ -47,7 +83,7 @@ public class CheckOut extends Application
 	}
 
 	@FXML protected void handleDoneButtonAction(ActionEvent event) throws Exception {
-		this.stop();
+		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 
 	@FXML protected void handleCheckOutButton(ActionEvent event) throws Exception {
@@ -57,5 +93,23 @@ public class CheckOut extends Application
 	@FXML
 	public void printToConsole(ActionEvent event) throws Exception{
 		System.out.println("BOOK");
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+
+		List<Author> as = new ArrayList<>();
+		as.add(new Author("Auth", "Auth", "cred", "Bio"));
+
+		ObservableList<Book> b = FXCollections.observableArrayList(
+				new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as));
+
+			title.setCellValueFactory(new PropertyValueFactory<Book,String>("title"));
+			due_date.setCellValueFactory(new PropertyValueFactory<Book,String>("due_date"));
+			return_date.setCellValueFactory(new PropertyValueFactory<Book,String>("return_date"));
+			checkout_date.setCellValueFactory(new PropertyValueFactory<Book,String>("checkout_date"));
+
+			checkout_records.setItems(b);
+
 	}
 }

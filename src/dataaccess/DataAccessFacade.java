@@ -28,8 +28,8 @@ public class DataAccessFacade implements IDataAccessFacade  {
 
 
 	@Override
-	public LibraryMember readLibraryMember(String name) {
-		return (LibraryMember)libraryMember.read(name);
+	public LibraryMember readLibraryMember(String memberID) {
+		return (LibraryMember)libraryMember.read(memberID);
 	}
 
 

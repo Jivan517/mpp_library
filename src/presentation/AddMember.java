@@ -22,8 +22,8 @@ public class AddMember extends Application {
 	@FXML private TextField txtCity;
 	@FXML private TextField txtState;
 	@FXML private TextField txtZip;
-	@FXML private TextField txtPhone;	
-	
+	@FXML private TextField txtPhone;
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("AddMember.fxml"));
@@ -33,7 +33,7 @@ public class AddMember extends Application {
 		primaryStage.show();
 	}
 
-	@FXML protected void handleSubmitButtonAction(ActionEvent event) throws Exception 
+	@FXML protected void handleSubmitButtonAction(ActionEvent event) throws Exception
 	{
 		try{
 			String memberId = txtmember_id.getText();
@@ -44,9 +44,9 @@ public class AddMember extends Application {
 			String city = txtCity.getText();
 			String zipCode = txtZip.getText();
 			String phone = txtPhone.getText();
-			
+
 			LibraryMember member = new LibraryMember(memberId, firstName + " " + lastName);
-			
+
 			//This user will be the logged in user
 			SystemUser user = new SystemUser();
 			user.AddAdminRole();
@@ -54,17 +54,17 @@ public class AddMember extends Application {
 				AdminRole admin = new AdminRole();
 				admin.addMember(member);
 			}
-			
-			System.out.println("saved successfully!");
+
+			System.out.println("\nsaved successfully!");
 		}catch(Exception e){
 			e.printStackTrace();
-			System.out.println("an exception occurred!");
+			System.out.println("\nan exception occurred!");
 		}
-		
-	   
+
+
 	}
 	@FXML protected void handleResetButtonAction(ActionEvent event) throws Exception {
-	       
+
 		txtmember_id.setText("");
 		txtFirstName.setText("");
 		txtLastName.setText("");
@@ -73,6 +73,6 @@ public class AddMember extends Application {
 		txtCity.setText("");
 		txtZip.setText("");
 		txtPhone.setText("");
-		
+
 	}
 }

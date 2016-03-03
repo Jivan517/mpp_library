@@ -17,9 +17,9 @@ public class Book extends Publication implements Serializable {
 	private String isbn;
 	private boolean popularity;
 	public boolean available;
-	private ArrayList<Author> authors;
+	private List<Author> authors;
 
-	public Book(String isbn, String title, ArrayList<Author> authors)
+	public Book(String isbn, String title, List<Author> authors)
 	{
 		this.isbn = isbn;
 		this.title = title;

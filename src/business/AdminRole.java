@@ -3,7 +3,7 @@ package business;
 import dataaccess.DataAccessFacade;
 
 public class AdminRole implements IRole, IAdminRole {
-	
+
 	DataAccessFacade accessFacade = new DataAccessFacade();
 
 	@Override
@@ -20,7 +20,7 @@ public class AdminRole implements IRole, IAdminRole {
 	@Override
 	public boolean addBook(Book book) {
 		try{
-			accessFacade.saveBook(book.getTitle(), book);
+			accessFacade.saveBook(book.getISBN(), book);
 			return true;
 		}
 		catch(Exception e){
@@ -30,9 +30,9 @@ public class AdminRole implements IRole, IAdminRole {
 
 	@Override
 	public boolean addMember(LibraryMember member) {
-		
+
 		try{
-			accessFacade.saveLibraryMember(member.getName(), member);
+			accessFacade.saveLibraryMember(member.getMemberId(), member);
 			return true;
 		}
 		catch(Exception e){
@@ -42,9 +42,9 @@ public class AdminRole implements IRole, IAdminRole {
 
 	@Override
 	public boolean editMember(LibraryMember member) {
-		
+
 		try{
-			accessFacade.editLibraryMember(member.getName(), member);
+			accessFacade.editLibraryMember(member.getMemberId(), member);
 			return true;
 		}
 		catch(Exception e){
