@@ -53,6 +53,8 @@ public class PersonalInfo implements Serializable{
 	public String getAddress(){
 		return this.address.toString();
 	}
-	
+	public Address getAddressObject(){
+		return this.address;
+	}
 	
 }

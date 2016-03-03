@@ -1,10 +1,10 @@
 package business;
 
 import java.io.Serializable;
-import java.util.*;
-import dataaccess.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import dataaccess.DataAccessFacade;
+import dataaccess.BookDataAccess;
 
 public class Book extends Publication implements Serializable {
 
@@ -60,12 +60,12 @@ public class Book extends Publication implements Serializable {
 		authors.add(a);
 	}
 	public void save(){
-		BookDataAccessFacade ba = new BookDataAccessFacade();
+		BookDataAccess ba = new BookDataAccess();
 		ba.write(this.isbn, this);
 	}
 
 	public static Book bookWithISBN(String s){
-		BookDataAccessFacade ba = new BookDataAccessFacade();
+		BookDataAccess ba = new BookDataAccess();
 		Book b = null;
 		try{
 			b = (Book)ba.read(s);

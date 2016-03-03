@@ -1,12 +1,13 @@
 package presentation;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import business.Author;
 import business.Book;
+import business.CheckoutRecord;
+import business.CheckoutRecordEntry;
+import business.LendableCopy;
 import business.LibraryMember;
 import business.UILib;
 import dataaccess.DataAccessFacade;
@@ -30,29 +31,29 @@ import javafx.stage.Stage;
 public class CheckOut extends Application implements Initializable
 {
 	private Book book;
+	private LibraryMember currentMem;
+
 	@FXML
 	private TextField mem_id;
 	@FXML
 	private TextField isbn_num;
 
 	@FXML
-	private TableView<Book> checkout_records;
+	private TableView<CheckoutRecordEntry> checkout_records;
 
 	@FXML
-	private TableColumn<Book, String> due_date;
-	@FXML
-	private TableColumn<Book, String> return_date;
+	private TableColumn<CheckoutRecordEntry, String> due_date;
 
 	@FXML
-	private TableColumn<Book, String> checkout_date;
+	private TableColumn<CheckoutRecordEntry, String> checkout_date;
 
 	@FXML
-	private TableColumn<Book, String> title;
+	private TableColumn<CheckoutRecordEntry, String> title;
 
 
 	@FXML private Label isbn, btitle,  copynum, author, popular, availablenum;
 	@FXML private Label bid;
-	
+
 	public void setBookInfo(){
 		isbn.setText(book.getISBN());
 		btitle.setText(book.getTitle());
@@ -60,8 +61,9 @@ public class CheckOut extends Application implements Initializable
 		copynum.setText(Integer.toString(book.numberOfCopies()));
 		author.setText(book.getAuthor());
 		availablenum.setText(Integer.toString(book.getAvailableNumber()));
-		
+
 	}
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("CheckOut.fxml"));
@@ -70,6 +72,7 @@ public class CheckOut extends Application implements Initializable
 		primaryStage.setTitle("Book Check out");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+
 		}
 
 	@FXML protected void handleSearchMem(ActionEvent event) throws Exception {
@@ -79,8 +82,36 @@ public class CheckOut extends Application implements Initializable
 		DataAccessFacade accessFacade = new DataAccessFacade();
 		LibraryMember lm = (LibraryMember) accessFacade.readLibraryMember(memberId);
 
-		System.out.println(lm.getName());
+		if(lm!=null)
+			populateTable(memberId, lm);
+		else
+			UILib.toast("No such Library Member!");
 
+	}
+
+	ObservableList<CheckoutRecordEntry> b;
+
+	private void populateTable(String memberId, LibraryMember lm) {
+		currentMem=lm;
+		CheckoutRecord rc = new CheckoutRecord().readCheckoutRecord(memberId);
+		if(rc!=null)
+		{
+			b = FXCollections.observableArrayList();
+
+			for(CheckoutRecordEntry e: rc.getEentries())
+			{
+				b.add(e);
+			}
+
+				title.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("title"));
+				due_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("checkoutDate"));
+				checkout_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("checkoutDate"));
+
+				checkout_records.setItems(b);
+
+		}
+		else
+			UILib.toast("No Entry For this Library Member!");
 	}
 
 	@FXML protected void handleSearchBookCopy(ActionEvent event) throws Exception {
@@ -101,6 +132,15 @@ public class CheckOut extends Application implements Initializable
 
 		mem_id.setText("");
 		isbn_num.setText("");
+
+		checkout_records.setItems(null);
+
+		isbn.setText("");
+		btitle.setText("");
+		bid.setText("");
+		copynum.setText("");
+		author.setText("");
+		availablenum.setText("");
 	}
 
 	@FXML protected void handleDoneButtonAction(ActionEvent event) throws Exception {
@@ -108,29 +148,26 @@ public class CheckOut extends Application implements Initializable
 	}
 
 	@FXML protected void handleCheckOutButton(ActionEvent event) throws Exception {
-//		LibraryMember member = new LibraryMember(memberId, memberId + " " + isbn_number);
-		System.out.println("CO");
+
+		LendableCopy copy = book.checkoutCopy();
+		if(copy != null){
+			currentMem.checkout(book.checkoutCopy(),  LocalDate.now(), LocalDate.now());
+		}
+		else
+			UILib.toast("Sorry, No Available Copies for this Book!");
+		populateTable(currentMem.getMemberId(), currentMem);
 	}
+
 	@FXML
 	public void printToConsole(ActionEvent event) throws Exception{
-		System.out.println("BOOK");
+		System.out.println("  	  |     "+"Book Title"+"  	  |     "+"Checkout Date"+"         |    "+"Due Date"+"         |     \n\n");
+		for(CheckoutRecordEntry e: b)
+		{
+			System.out.println("  	  |         "+e.getTitle()+"  	  |         "+e.getCheckoutDate()+"         |     "+e.getDueDate()+"     |     \n");
+		}
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
-		List<Author> as = new ArrayList<>();
-		as.add(new Author("Auth", "Auth", "cred", "Bio", "street", "city", "state", "zip", "1333333"));
-
-		ObservableList<Book> b = FXCollections.observableArrayList(
-				new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as));
-
-			title.setCellValueFactory(new PropertyValueFactory<Book,String>("title"));
-			due_date.setCellValueFactory(new PropertyValueFactory<Book,String>("due_date"));
-			return_date.setCellValueFactory(new PropertyValueFactory<Book,String>("return_date"));
-			checkout_date.setCellValueFactory(new PropertyValueFactory<Book,String>("checkout_date"));
-
-			checkout_records.setItems(b);
-
 	}
 }

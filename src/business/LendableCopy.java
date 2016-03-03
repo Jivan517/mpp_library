@@ -18,6 +18,11 @@ public class LendableCopy implements Serializable {
 		this.publication = publication;
 	}
 
+	public Book getBook()
+	{
+		return (Book) this.publication;
+	}
+
 	public String toString() {
 		return publication.toString();
 	}

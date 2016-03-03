@@ -3,6 +3,7 @@ package dataaccess;
 import business.Book;
 import business.FineRecord;
 import business.CheckoutRecord;
+import business.CheckoutRecordEntry;
 import business.LendableCopy;
 import business.LibraryMember;
 
@@ -13,17 +14,30 @@ public class DataAccessFacade implements IDataAccessFacade  {
 	private DataAccess book;
 	private DataAccess lendableCopy;
 	private DataAccess fines;
+	private DataAccess checkOutRecords;
 
 	public DataAccessFacade(){
 		this.libraryMember = new LibraryMemberDataAccess();
-		this.book = new BookDataAccessFacade();
+		this.book = new BookDataAccess();
 		this.lendableCopy =  new LendableCopyDataAccess();
 		this.fines =  new FineRecordDataAccess();
+		this.checkOutRecords = new CheckOutRecordAccess();
 	}
 
 	@Override
 	public void saveLibraryMember(String name, LibraryMember member) {
 		libraryMember.write(name, member);
+	}
+
+
+	@Override
+	public CheckoutRecord readCheckOutRecord(String memberID) {
+		return (CheckoutRecord)libraryMember.read(memberID);
+	}
+
+	@Override
+	public void saveCheckOutRecord(String memId, CheckoutRecord record) {
+		libraryMember.write(memId, record);
 	}
 
 
@@ -64,12 +78,6 @@ public class DataAccessFacade implements IDataAccessFacade  {
 
 	@Override
 	public void editLibraryMember(String name, LibraryMember member) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void saveCheckoutRecord(String memberName, CheckoutRecord record) {
 		// TODO Auto-generated method stub
 
 	}

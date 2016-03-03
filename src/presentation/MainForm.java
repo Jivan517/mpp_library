@@ -18,35 +18,35 @@ public class MainForm extends Application {
 	@FXML private Button btnAddCopy;
 	@FXML private Button btnListMember;
 	@FXML private Button btnSearchMember;
-	
-	
+
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+
 		sysUser = primaryStage.getUserData();
 		SystemUser member = (SystemUser) sysUser;
 		Parent root = FXMLLoader.load(getClass().getResource("MainForm.fxml"));
-		
+
 		if(!member.isAdmin()){
 			root = FXMLLoader.load(getClass().getResource("MainFormLibrarian.fxml"));
 		}
-		
+
 		if(!member.isLibrarian()){
 			root = FXMLLoader.load(getClass().getResource("MainFormAdmin.fxml"));
 		}
-		
-		
+
+
 		Scene scene = new Scene(root, 500, 200);
 		primaryStage.setResizable(false);
-		
+
 		String windowTitle = "Welcome - " + member .getName() + "!";
-			
+
 		primaryStage.close();
 		primaryStage.setTitle(windowTitle);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
-		
+
+
 
 	}
 	@FXML protected void handleAddMemberButtonAction(ActionEvent event) throws Exception {
@@ -55,8 +55,15 @@ public class MainForm extends Application {
 	       stage.setUserData(sysUser);
 	       am.start(stage);
     }
+
+	@FXML protected void handleEditMemberButtonAction(ActionEvent event) throws Exception {
+	       MemberSearch ms = new MemberSearch();
+	       Stage stage = new Stage();
+	       stage.setUserData(sysUser);
+	       ms.start(stage);
+ }
 	@FXML protected void handleListMemberButtonAction(ActionEvent event){
-		
+
     }
 	@FXML protected void handleSearchMemberButtonAction(ActionEvent event)  throws Exception {
 	       CheckOut co = new CheckOut();

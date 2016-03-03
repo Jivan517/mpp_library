@@ -23,12 +23,12 @@ public class BookDataAccess implements DataAccess {
 		try {
 			Book book = (Book) obj;
 
-			FileOutputStream fileOut = new FileOutputStream(OUTPUT_DIR + name + ".ser");
+			FileOutputStream fileOut = new FileOutputStream(OUTPUT_DIR + name);
 			out = new ObjectOutputStream(fileOut);
 			out.writeObject(book);
 			out.close();
 			fileOut.close();
-			System.out.printf("Serialized data is saved in " + OUTPUT_DIR + name + ".ser");
+			System.out.printf("Serialized data is saved in " + OUTPUT_DIR + name);
 
 		} catch(IOException e) {
 			e.printStackTrace();

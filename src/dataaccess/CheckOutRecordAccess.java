@@ -10,9 +10,9 @@ import java.nio.file.Path;
 
 import business.*;
 
-public class BookDataAccessFacade implements DataAccess {
+public class CheckOutRecordAccess implements DataAccess {
 	public static final String OUTPUT_DIR = System.getProperty("user.dir")
-			+ "/src/dataaccess/storage/book/";
+			+ "/src/dataaccess/storage/checkoutrecord/";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
 
@@ -21,14 +21,14 @@ public class BookDataAccessFacade implements DataAccess {
 		ObjectOutputStream out = null;
 		try {
 
-			Book book = (Book) obj;
+			CheckoutRecord cr = (CheckoutRecord) obj;
 
 			FileOutputStream fileOut = new FileOutputStream(OUTPUT_DIR + name);
 			out = new ObjectOutputStream(fileOut);
-			out.writeObject(book);
+			out.writeObject(cr);
 			out.close();
 			fileOut.close();
-			System.out.printf("\nSerialized Book data is saved in " + OUTPUT_DIR + name );
+			System.out.printf("\nSerialized CR data is saved in " + OUTPUT_DIR + name );
 
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -45,13 +45,15 @@ public class BookDataAccessFacade implements DataAccess {
 	@Override
 	public Object read(String name) {
 		ObjectInputStream in = null;
-		Book book = null;
+		CheckoutRecord cr = null;
+
 		try {
 			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, name);
 			in = new ObjectInputStream(Files.newInputStream(path));
-			book = (Book)in.readObject();
+			cr = (CheckoutRecord)in.readObject();
+
 		} catch(Exception e) {
-			
+
 		} finally {
 			if(in != null) {
 				try {
@@ -59,6 +61,6 @@ public class BookDataAccessFacade implements DataAccess {
 				} catch(Exception e) {}
 			}
 		}
-		return book;
+		return cr;
 	}
 }
