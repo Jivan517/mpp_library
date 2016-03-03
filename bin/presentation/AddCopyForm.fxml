@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -11,8 +12,17 @@
       <HBox>
          <children>
             <Region nodeOrientation="LEFT_TO_RIGHT" HBox.hgrow="ALWAYS" />
-            <Label prefHeight="25.0" prefWidth="74.0" text="Book ISBN: " />
-            <TextField fx:id="isbnText" promptText="ISBN" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="Book ISBN: ">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font></Label>
+            <TextField fx:id="isbnText" promptText="ISBN">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></TextField>
             <Button mnemonicParsing="false" onAction="#handleSearchButtonAction" text="Search" />
             <Region HBox.hgrow="ALWAYS" />
          </children>
@@ -21,38 +31,56 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="ISBN" textAlignment="CENTER" />
-                  <Label fx:id="isbn" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="ISBN" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="isbn" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="100.0" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="ID" textAlignment="CENTER" />
-                  <Label fx:id="bid" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="ID" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="bid" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="Title" textAlignment="CENTER" />
-                  <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="Title" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="title" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="300.0" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="Popular" textAlignment="CENTER" />
-                  <Label fx:id="popular" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="Popular" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="popular" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="100.0" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="Author" textAlignment="CENTER" />
-                  <Label fx:id="author" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="Author" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="author" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="300.0" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="CopyNum" textAlignment="CENTER" />
-                  <Label fx:id="copynum" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="CopyNum" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="copynum" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="100.0" />
                </children>
             </HBox>
          </children>

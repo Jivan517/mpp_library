@@ -59,7 +59,7 @@ public class AddCopyForm extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("AddCopyForm.fxml"));
 		Scene scene = new Scene(root, 500, 400);
 		primaryStage.setResizable(false);
-		primaryStage.setTitle("Add Library Member");
+		primaryStage.setTitle("Add Lendable Copy");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
