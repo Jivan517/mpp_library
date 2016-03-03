@@ -17,24 +17,25 @@ public class MainForm extends Application {
 		primaryStage.setTitle("Librarian");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
+
 	}
 	@FXML protected void handleAddMemberButtonAction(ActionEvent event) throws Exception {
 	       AddMember am = new AddMember();
 	       Stage stage = new Stage();
 			am.start(stage);
     }
-	@FXML protected void handleListMemberButtonAction(ActionEvent event) {
-	       
+	@FXML protected void handleListMemberButtonAction(ActionEvent event){
     }
-	@FXML protected void handleSearchMemberButtonAction(ActionEvent event) {
-	       
+	@FXML protected void handleSearchMemberButtonAction(ActionEvent event)  throws Exception {
+	       CheckOut co = new CheckOut();
+	       Stage stage = new Stage();
+			co.start(stage);
     }
 	@FXML protected void handleAddBookButtonAction(ActionEvent event) {
-	       
+
     }
 	@FXML protected void handleAddCopyButtonAction(ActionEvent event) {
-	       
+
     }
 
 }
