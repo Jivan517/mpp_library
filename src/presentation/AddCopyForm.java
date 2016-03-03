@@ -29,7 +29,11 @@ public class AddCopyForm extends Application {
 			return;
 		}
 		
-		book.addCopy(book.numberOfCopies()+1);
+		boolean ret = book.addCopy(book.numberOfCopies()+1);
+		if(ret == false){
+			UILib.toast("Add copy faield");
+			return;
+		}
 		book.save();
 		this.setBookInfo();
 	}
