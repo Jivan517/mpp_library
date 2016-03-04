@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="283.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
+<VBox prefHeight="434.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
    <children>
       <HBox fx:id="hbox3" alignment="CENTER" prefHeight="52.0" prefWidth="529.0" style="-fx-background-color: EE2E12;">
          <children>
@@ -21,7 +21,7 @@
                </font>
             </Label>
          </children></HBox>
-      <HBox fx:id="hbox1" alignment="CENTER" prefHeight="100.0" prefWidth="319.0">
+      <HBox fx:id="hbox1" alignment="CENTER" prefHeight="168.0" prefWidth="595.0">
          <children>
             <Button fx:id="btnAddMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddMemberButtonAction" prefHeight="50.0" prefWidth="120.0" stylesheets="@st.css" text="Add Member" textFill="WHITE">
                <HBox.margin>
@@ -58,8 +58,11 @@
             <URL value="@st2.css" />
             <URL value="@st.css" />
          </stylesheets>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
       </HBox>
-      <HBox fx:id="hbox2" alignment="CENTER">
+      <HBox fx:id="hbox2" alignment="CENTER" prefHeight="98.0" prefWidth="595.0">
          <children>
             <Button fx:id="btnListMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleListMemberButtonAction" prefHeight="50.0" stylesheets="@st.css" text="List Member" textFill="WHITE">
                <HBox.margin>
@@ -71,7 +74,20 @@
                   <Insets left="5.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Button>
+            <Button fx:id="btnFineRecords" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleFineRecordsButtonAction" prefHeight="50.0" prefWidth="153.0" stylesheets="@st.css" text="Fine Records" textFill="#fffdfd">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Button>
          </children>
+      </HBox>
+      <HBox prefHeight="10.0" prefWidth="529.0" style="-fx-background-color: EE2E12;">
+         <VBox.margin>
+            <Insets top="40.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>

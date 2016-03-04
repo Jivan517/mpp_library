@@ -39,7 +39,7 @@ public class MainForm extends Application {
 		}
 
 
-		Scene scene = new Scene(root, 500, 300);
+		Scene scene = new Scene(root, 550, 400);
 		primaryStage.setResizable(false);
 
 		String windowTitle = "Welcome - " + member .getName() + "!";

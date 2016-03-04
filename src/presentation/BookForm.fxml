@@ -110,9 +110,9 @@
                   </VBox>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#handleAddAuthorButtonAction" prefHeight="44.0" prefWidth="93.0" stylesheets="@st.css" text="Add Author" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#handleAddAuthorButtonAction" prefHeight="36.0" prefWidth="134.0" stylesheets="@st.css" text="Add Author" textFill="WHITE">
                <VBox.margin>
-                  <Insets bottom="10.0" left="160.0" />
+                  <Insets bottom="10.0" left="140.0" />
                </VBox.margin>
                <font>
                   <Font name="Corbel Bold" size="14.0" />

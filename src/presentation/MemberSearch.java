@@ -37,7 +37,7 @@ public class MemberSearch extends Application{
 		System.out.println("before created");
 		Parent root = FXMLLoader.load(getClass().getResource("MemberSearch.fxml"));
 		System.out.println("created");
-		Scene scene = new Scene(root,600,400);
+		Scene scene = new Scene(root,400,600);
 		sysUser = primaryStage.getUserData();
 		//primaryStage.setResizable(false);
 		primaryStage.setTitle("Search Library Members");
