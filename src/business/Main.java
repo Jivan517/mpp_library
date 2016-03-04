@@ -52,22 +52,17 @@ public class Main extends Application{
 		//System.out.println(m.toString());
 
 
-//		LoginForm lf = new LoginForm();
-//		lf.start(primaryStage);
-
-//		LoginForm lf = new LoginForm();
-//		lf.start(primaryStage);
-
-//		LoginForm lf = new LoginForm();
-//		lf.start(primaryStage);
-
 		//ArrayList<FineEntry> records = new ArrayList();
 		//records.add(new FineEntry(c, LocalDate.now(),LocalDate.now(),80, new CheckoutRecordEntry(c, LocalDate.now(), LocalDate.now())));
 
 		//FineRecord  rec = new FineRecord(member);
 		//accessFacade.saveFineRecord(member.getMemberId(), rec);
-		LoginForm lf = new LoginForm();
-		lf.start(primaryStage);
+
+//		LoginForm lf = new LoginForm();
+//		lf.start(primaryStage);
+
+		MainForm mf = new MainForm();
+		mf.start(primaryStage);
 
 	}
 

@@ -19,32 +19,28 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class CheckOut extends Application implements Initializable
+public class CheckOut extends Application
 {
 	@FXML
 	private TextField mem_id;
 	@FXML
 	private TextField isbn_num;
+	@FXML
+	private TableView<Author> checkout_records;
 
-	@FXML
-	private TableView<Book> checkout_records;
+	@FXML private TableColumn<Author, String> due_date;
+	@FXML private TableColumn<Author, String> return_date;
 
-	@FXML
-	private TableColumn<Book, String> due_date;
-	@FXML
-	private TableColumn<Book, String> return_date;
+	@FXML private TableColumn<Author, String> checkout_date;
 
-	@FXML
-	private TableColumn<Book, String> checkout_date;
-
-	@FXML
-	private TableColumn<Book, String> title;
+	@FXML private TableColumn<Author, String> title;
 
 
 	@Override
@@ -95,19 +91,32 @@ public class CheckOut extends Application implements Initializable
 		System.out.println("BOOK");
 	}
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	@FXML
+	public void initialize() {
 
 		List<Author> as = new ArrayList<>();
 		as.add(new Author("Auth", "Auth", "cred", "Bio"));
 
-		ObservableList<Book> b = FXCollections.observableArrayList(
-				new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as),new Book("1", "tit1", as));
+		ObservableList<Author> b = FXCollections.observableArrayList();
 
-			title.setCellValueFactory(new PropertyValueFactory<Book,String>("title"));
-			due_date.setCellValueFactory(new PropertyValueFactory<Book,String>("due_date"));
-			return_date.setCellValueFactory(new PropertyValueFactory<Book,String>("return_date"));
-			checkout_date.setCellValueFactory(new PropertyValueFactory<Book,String>("checkout_date"));
+		b.add(new Author("Auth", "Auth", "cred", "Bio"));
+		b.add(new Author("Auth", "Auth", "cred", "Bio"));
+		b.add(new Author("Auth", "Auth", "cred", "Bio"));
+		b.add(new Author("Auth", "Auth", "cred", "Bio"));
+		b.add(new Author("Auth", "Auth", "cred", "Bio"));
+		b.add(new Author("Auth", "Auth", "cred", "Bio"));
+		b.add(new Author("Auth", "Auth", "cred", "Bio"));
+		b.add(new Author("Auth", "Auth", "cred", "Bio"));
+		b.add(new Author("Auth", "Auth", "cred", "Bio"));
+
+//				b.add(new Book("1", "tit1", as));
+//				b.add(new Book("1", "tit1", as));
+//				b.add(new Book("1", "tit1", as));
+
+			title.setCellValueFactory(new PropertyValueFactory<Author,String>("credential"));
+			due_date.setCellValueFactory(new PropertyValueFactory<Author,String>("credential"));
+			return_date.setCellValueFactory(new PropertyValueFactory<Author,String>("credential"));
+			checkout_date.setCellValueFactory(new PropertyValueFactory<Author,String>("shortBio"));
 
 			checkout_records.setItems(b);
 
