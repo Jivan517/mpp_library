@@ -56,7 +56,7 @@ public class CheckOut extends Application implements Initializable
 	@FXML
 	private TableColumn<CheckoutRecordEntry, String> title;
 	@FXML
-	private TableColumn<CheckoutRecordEntry, Boolean> rtstatus;
+	private TableColumn<CheckoutRecordEntry, String> rtstatus;
 
 
 	@FXML private Label isbn, btitle,  copynum, author, popular, availablenum;
@@ -87,6 +87,7 @@ public class CheckOut extends Application implements Initializable
 			UILib.toast("This book has been returned!");
 			return;
 		}
+		entry.setReturnedDate(LocalDate.now());;
 		entry.setReturned(true);
 		rc.saveCheckoutRecord();
 		checkout_records.refresh();
@@ -123,7 +124,7 @@ public class CheckOut extends Application implements Initializable
 			title.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("title"));
 			due_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("dueDate"));
 			checkout_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("checkoutDate"));
-			rtstatus.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,Boolean>("returned"));
+			rtstatus.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("returnedDate"));
 			checkout_records.setItems(b);
 
 		}

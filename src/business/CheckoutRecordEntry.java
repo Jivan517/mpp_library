@@ -14,6 +14,7 @@ public class CheckoutRecordEntry implements Serializable {
 	private String title;
 	private LocalDate checkoutDate;
 	private LocalDate dueDate;
+	private LocalDate returnedDate;
 	private boolean returned;
 
 	public CheckoutRecordEntry(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate){
@@ -21,6 +22,7 @@ public class CheckoutRecordEntry implements Serializable {
 		this.checkoutDate = checkoutDate;
 		this.dueDate = dueDate;
 		this.title= copy.getBook().getTitle();
+		this.setReturnedDate(null);
 		this.returned = false;
 	}
 
@@ -83,6 +85,16 @@ public class CheckoutRecordEntry implements Serializable {
 	}
 
 
+	public LocalDate getReturnedDate() {
+		return returnedDate;
+	}
+
+
+	public void setReturnedDate(LocalDate returnedDate) {
+		this.returnedDate = returnedDate;
+	}
+
+
 	public boolean isReturned() {
 		return returned;
 	}
@@ -91,4 +103,7 @@ public class CheckoutRecordEntry implements Serializable {
 	public void setReturned(boolean returned) {
 		this.returned = returned;
 	}
+
+
+	
 }

@@ -29,7 +29,7 @@
             <TableColumn fx:id="title" maxWidth="5000.0" minWidth="10.0" prefWidth="167.0" text="Book Title" />
             <TableColumn fx:id="checkout_date" maxWidth="5000.0" minWidth="10.0" prefWidth="193.0" text="Checkout Date" />
             <TableColumn fx:id="due_date" maxWidth="5000.0" minWidth="10.0" prefWidth="169.0" text="Due Date" />
-                  <TableColumn fx:id="rtstatus" prefWidth="114.0" text="Returned Status" />
+                  <TableColumn fx:id="rtstatus" prefWidth="114.0" text="Returned Date" />
           </columns>
         </TableView>
         <Button mnemonicParsing="false" onAction="#handleCheckOutButton" prefHeight="27.0" prefWidth="161.0" text="Check Out" GridPane.columnIndex="2" GridPane.rowIndex="22" />
