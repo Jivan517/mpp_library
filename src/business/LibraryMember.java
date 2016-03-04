@@ -74,7 +74,7 @@ public LibraryMember(){
 
 	public void checkout(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate) {
 		CheckoutRecordEntry entry = new CheckoutRecordEntry(copy, checkoutDate, dueDate);
-		record.addEntry(entry,this);
+		record.addEntry(entry);
 	}
 
 	public CheckoutRecord getCheckoutRecord(){
@@ -88,5 +88,7 @@ public LibraryMember(){
 	{
 		return accessFacade.readLibraryMember(id);
 	}
-
+	public String getPhone(){
+		return this.personalInfo.getPhone();
+	}
 }

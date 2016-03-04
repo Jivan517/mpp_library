@@ -18,7 +18,8 @@ import javafx.stage.Stage;
 public class AddMember extends Application {
 
 	private static Object sysUser = null;
-	@FXML private TextField txtmember_id;
+	public static String firstName;
+	@FXML public static TextField txtmember_id;
 	@FXML private TextField txtFirstName;
 	@FXML private TextField txtLastName;
 	@FXML private TextField txtStreet;
@@ -26,21 +27,19 @@ public class AddMember extends Application {
 	@FXML private TextField txtState;
 	@FXML private TextField txtZip;
 	@FXML private TextField txtPhone;
-	private LibraryMember member;
+	public static LibraryMember member;
 public AddMember(){
 	member=null;
 }
 public AddMember(LibraryMember member){
-	/*
-
-	*/
 	this.member = member;
+	firstName = member.getFirstName();
 }
 private void initMember(){
 
-	System.out.println(member.getMemberId());
+	System.out.println(firstName);
 	txtmember_id= new TextField();
-	txtmember_id.setText(member.getMemberId());
+	txtmember_id.setText(firstName);
 	txtmember_id.commitValue();
 	System.out.println("1");
 	txtFirstName= new TextField();
@@ -61,7 +60,7 @@ private void initMember(){
 	txtZip= new TextField();
 	txtZip.setText(add.getZipcode());
 	txtPhone= new TextField();
-	txtPhone.setText("123123");
+	txtPhone.setText(member.getPhone());
 	txtmember_id.setDisable(true);
 }
 @Override
@@ -89,6 +88,21 @@ public void init() throws Exception {
 		if(member!=null){
 			initMember();
 		}
+
+		System.out.println("b4 calling the initMember");
+
+		if(txtmember_id!=null)
+		txtmember_id.setText("someText");
+		if(member!=null){
+			System.out.println("calling the initMember");
+			initMember();
+		}
+		primaryStage.setResizable(false);
+		primaryStage.setTitle("Add Library Member");
+		primaryStage.setScene(scene);
+		//if(member!=null){
+		//	initMember();
+		//}
 
 	}
 
