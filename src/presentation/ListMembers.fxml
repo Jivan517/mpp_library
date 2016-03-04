@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="628.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.ListMembers">
+   <children>
+      <VBox prefHeight="628.0" prefWidth="547.0">
+         <children>
+            <Label contentDisplay="CENTER" prefHeight="115.0" prefWidth="178.0" text="List of All Library Members">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="8.0" />
+               </opaqueInsets>
+            </Label>
+            <TableView fx:id="members_table" prefHeight="616.0" prefWidth="546.0">
+              <columns>
+                  <TableColumn fx:id="id" prefWidth="86.0" text="Member ID" />
+                <TableColumn fx:id="name" prefWidth="174.0" text="Name" />
+                  <TableColumn fx:id="phone" prefWidth="132.0" text="Phone " />
+                  <TableColumn fx:id="address" prefWidth="153.0" text="Full Address" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

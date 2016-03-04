@@ -39,7 +39,6 @@ public class LoginHelper {
 
 	public SystemUser getByUsername(String username){
 
-		System.out.println("jivan == jivan: " + "jivan".equals("jivan"));
 		SystemUser user = null;
 		for(SystemUser sysUser: userList){
 			if(sysUser.getUsername().equals(username)){
