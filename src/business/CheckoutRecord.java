@@ -29,8 +29,6 @@ public class CheckoutRecord implements Serializable {
 		saveCheckoutRecord();
 	}
 
-
-
 	public CheckoutRecord() {
 		// TODO Auto-generated constructor stub
 	}

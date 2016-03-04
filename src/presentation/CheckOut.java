@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import business.Book;
 import business.CheckoutRecord;
 import business.CheckoutRecordEntry;
+import business.LendableCopy;
 import business.LibraryMember;
 import business.UILib;
 import dataaccess.DataAccessFacade;
@@ -82,10 +83,7 @@ public class CheckOut extends Application implements Initializable
 		LibraryMember lm = (LibraryMember) accessFacade.readLibraryMember(memberId);
 
 		if(lm!=null)
-		{
 			populateTable(memberId, lm);
-
-		}
 		else
 			UILib.toast("No such Library Member!");
 
@@ -96,7 +94,6 @@ public class CheckOut extends Application implements Initializable
 	private void populateTable(String memberId, LibraryMember lm) {
 		currentMem=lm;
 		CheckoutRecord rc = new CheckoutRecord().readCheckoutRecord(memberId);
-
 		if(rc!=null)
 		{
 			b = FXCollections.observableArrayList();
@@ -151,11 +148,16 @@ public class CheckOut extends Application implements Initializable
 	}
 
 	@FXML protected void handleCheckOutButton(ActionEvent event) throws Exception {
-		currentMem.checkout(book,  LocalDate.now(), LocalDate.now());
-		populateTable(currentMem.getMemberId(), currentMem);
 
-		System.out.println(book.getTitle());
+		LendableCopy copy = book.checkoutCopy();
+		if(copy != null){
+			currentMem.checkout(book.checkoutCopy(),  LocalDate.now(), LocalDate.now());
+		}
+		else
+			UILib.toast("Sorry, No Available Copies for this Book!");
+		populateTable(currentMem.getMemberId(), currentMem);
 	}
+
 	@FXML
 	public void printToConsole(ActionEvent event) throws Exception{
 		System.out.println("  	  |     "+"Book Title"+"  	  |     "+"Checkout Date"+"         |    "+"Due Date"+"         |     \n\n");

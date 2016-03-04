@@ -1,10 +1,10 @@
 package business;
 
 import java.io.Serializable;
-import java.util.*;
-import dataaccess.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import dataaccess.DataAccessFacade;
+import dataaccess.BookDataAccess;
 
 public class Book extends Publication implements Serializable {
 

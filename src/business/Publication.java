@@ -2,10 +2,10 @@ package business;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
 
 abstract public class Publication implements Serializable {
-	
+
 	private static final long serialVersionUID = 2010893663327964921L;
 	private LocalDate dateDue;
 	private String title;
@@ -23,7 +23,7 @@ abstract public class Publication implements Serializable {
 		}
 		return ret;
 	}
-	public abstract void save(); 
+	public abstract void save();
 	protected void setDateDue(LocalDate d) {
 		dateDue = d;
 	}
@@ -33,17 +33,20 @@ abstract public class Publication implements Serializable {
 	public LocalDate getDateDue() {
 		return dateDue;
 	}
+
 	public LendableCopy checkoutCopy(){
 		LendableCopy p = null;
 		for(int i = 0; i < this.numberOfCopies(); i++){
 			p = copies.get(i);
 			if(p.isAvailable()){
 				p.setAvailable(false);
+				this.save();
 				return p;
 			}
 		}
 		return null;
 	}
+
 	public void checkinCopy(LendableCopy copy){
 		LendableCopy p = null;
 		for(int i = 0; i < this.numberOfCopies(); i++){
@@ -55,6 +58,7 @@ abstract public class Publication implements Serializable {
 			}
 		}
 	}
+
 	public boolean addCopy(int copyid){
 		for(int i = 0; i < copies.size(); i++){
 			LendableCopy c = copies.get(i);
@@ -67,6 +71,8 @@ abstract public class Publication implements Serializable {
 		copies.add(lc);
 		return true;
 	}
+
+
 	public String getTitle() {
 		return title;
 	}

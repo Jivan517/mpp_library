@@ -10,7 +10,7 @@ public class LibrarianRole implements ILibrarianRole, IRole {
 
 
 	@Override
-	public boolean checkOut(LibraryMember member, Book copy, LocalDate dueDate, LocalDate checkoutDate) {
+	public boolean checkOut(LibraryMember member, LendableCopy copy, LocalDate dueDate, LocalDate checkoutDate) {
 		try{
 
 			member.checkout(copy, checkoutDate, dueDate);

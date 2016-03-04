@@ -46,10 +46,12 @@ public class CheckOutRecordAccess implements DataAccess {
 	public Object read(String name) {
 		ObjectInputStream in = null;
 		CheckoutRecord cr = null;
+
 		try {
 			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, name);
 			in = new ObjectInputStream(Files.newInputStream(path));
 			cr = (CheckoutRecord)in.readObject();
+
 		} catch(Exception e) {
 
 		} finally {

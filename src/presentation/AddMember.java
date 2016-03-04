@@ -1,8 +1,6 @@
 package presentation;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
+import business.Address;
 import business.AdminRole;
 import business.LibraryMember;
 import business.SystemUser;
@@ -12,6 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class AddMember extends Application {
@@ -25,16 +26,70 @@ public class AddMember extends Application {
 	@FXML private TextField txtState;
 	@FXML private TextField txtZip;
 	@FXML private TextField txtPhone;
+	private LibraryMember member;
+public AddMember(){
+	member=null;
+}
+public AddMember(LibraryMember member){
+	/*
+
+	*/
+	this.member = member;
+}
+private void initMember(){
+
+	System.out.println(member.getMemberId());
+	txtmember_id= new TextField();
+	txtmember_id.setText(member.getMemberId());
+	txtmember_id.commitValue();
+	System.out.println("1");
+	txtFirstName= new TextField();
+	txtFirstName.setText(member.getFirstName());
+	System.out.println(member.getFirstName());
+	//System.out.println("1");
+	txtLastName= new TextField();
+	txtLastName.setText(member.getLastName());
+	//System.out.println("1");
+
+	Address add = member.getAddress();
+	txtStreet= new TextField();
+	txtStreet.setText(add.getStreet());
+	txtState= new TextField();
+	txtState.setText(add.getState());
+	txtCity= new TextField();
+	txtCity.setText(add.getCity());
+	txtZip= new TextField();
+	txtZip.setText(add.getZipcode());
+	txtPhone= new TextField();
+	txtPhone.setText("123123");
+	txtmember_id.setDisable(true);
+}
+@Override
+
+public void init() throws Exception {
+	System.out.println("init!");
+	if(member!=null){
+		initMember();
+	}
+}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+
 		Parent root = FXMLLoader.load(getClass().getResource("AddMember.fxml"));
 		Scene scene = new Scene(root, 500, 400);
 		sysUser = primaryStage.getUserData();
+		primaryStage.show();
+		//if(member!=null){
+		//	initMember();
+		//}
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Add Library Member");
 		primaryStage.setScene(scene);
-		primaryStage.show();
+		if(member!=null){
+			initMember();
+		}
+
 	}
 
 	@FXML protected void handleSubmitButtonAction(ActionEvent event) throws Exception
@@ -48,7 +103,7 @@ public class AddMember extends Application {
 			String city = txtCity.getText();
 			String zipCode = txtZip.getText();
 			String phone = txtPhone.getText();
-			
+
 			if(memberId.length() == 0 || firstName.length() == 0 || lastName.length() == 0){
 				toast("MemberId, FirstName and LastName fields should not be empty!");
 				return;
@@ -56,8 +111,8 @@ public class AddMember extends Application {
 			if(zipCode != "" && Integer.parseInt(zipCode) == 0 ){
 				toast("Please, enter valid zipcode!");
 			}
-			
-			
+
+
 			LibraryMember member = new LibraryMember(memberId, firstName, lastName, phone, street, city, state, zipCode);
 
 			//This user will be the logged in user
@@ -68,19 +123,19 @@ public class AddMember extends Application {
 					AdminRole admin = new AdminRole();
 					admin.addMember(member);
 				}
-				
+
 			}else{
 				toast("The logged in user is expired!");
 				return;
 			}
-			
+
 			alertSuccess("Library member saved successfully!");
 			clearFields();
 		}
 		catch(NumberFormatException e){
 			toast("Please, enter valid zipcode!");
 		}
-		
+
 		catch(Exception e){
 			e.printStackTrace();
 			toast("An error occurred!");
@@ -88,26 +143,26 @@ public class AddMember extends Application {
 
 
 	}
-	
+
 	public void alertSuccess(String msg){
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Success");
 		alert.setHeaderText(msg);
 		alert.showAndWait();
 	}
-	
+
 	public void toast(String msg){
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setTitle("Warning");
 		alert.setHeaderText(msg);
 		alert.showAndWait();
 	}
-	
+
 	@FXML protected void handleResetButtonAction(ActionEvent event) throws Exception {
 
 		clearFields();
 	}
-	
+
 	private void clearFields(){
 		txtmember_id.setText("");
 		txtFirstName.setText("");

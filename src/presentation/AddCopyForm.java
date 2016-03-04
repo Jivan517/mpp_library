@@ -22,13 +22,13 @@ public class AddCopyForm extends Application {
 	@FXML private TextField isbnText;
 	@FXML private Label isbn, title,  copynum, author, popular;
 	@FXML private Label bid;
-	
+
 	@FXML protected void handleAddButtonAction(ActionEvent event) {
 		if(book == null){
 			UILib.toast("No book selected");
 			return;
 		}
-		
+
 		boolean ret = book.addCopy(book.numberOfCopies()+1);
 		if(ret == false){
 			UILib.toast("Add copy faield");
@@ -62,8 +62,8 @@ public class AddCopyForm extends Application {
 		primaryStage.setTitle("Add Lendable Copy");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
+
 	}
 
-	
+
 }

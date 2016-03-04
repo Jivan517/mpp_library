@@ -10,21 +10,21 @@ public class CheckoutRecordEntry implements Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	private Book copy;
+	private LendableCopy copy;
 	private String title;
 	private LocalDate checkoutDate;
 	private LocalDate dueDate;
 
 
-	public CheckoutRecordEntry(Book copy, LocalDate checkoutDate, LocalDate dueDate){
+	public CheckoutRecordEntry(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate){
 		this.copy = copy;
 		this.checkoutDate = checkoutDate;
 		this.dueDate = dueDate;
-		this.title=copy.getTitle();
+		this.title="s";
 	}
 
 
-	public Book getCopy() {
+	public LendableCopy getCopy() {
 		return copy;
 	}
 
@@ -39,7 +39,7 @@ public class CheckoutRecordEntry implements Serializable {
 	}
 
 
-	public void setCopy(Book copy) {
+	public void setCopy(LendableCopy copy) {
 		this.copy = copy;
 	}
 
