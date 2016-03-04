@@ -2,8 +2,6 @@ package business;
 
 import java.io.Serializable;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class Author implements Serializable{
 
 	/**
@@ -12,16 +10,36 @@ public class Author implements Serializable{
 	private static final long serialVersionUID = -4818431554335178421L;
 
 	private PersonalInfo personalInfo;
-	private SimpleStringProperty credential;
-	private SimpleStringProperty shortBio;
+	 String n;
+	 String shortBio;
 
 	public Author(String firstName, String lName, String credential, String shortBio){
 		this.personalInfo = new PersonalInfo(firstName, lName);
-		this.credential = new SimpleStringProperty(credential);
-		this.shortBio = new SimpleStringProperty(shortBio);
+		this.n = credential;
+		this.shortBio = shortBio;
 	}
 	public String getFullname(){
 		return this.personalInfo.getFirstName() + " " + this.personalInfo.getLastName();
 	}
+	public PersonalInfo getPersonalInfo() {
+		return personalInfo;
+	}
+	public void setPersonalInfo(PersonalInfo personalInfo) {
+		this.personalInfo = personalInfo;
+	}
+	public String getN() {
+		return n;
+	}
+	public void setN(String n) {
+		this.n = n;
+	}
+	public String getShortBio() {
+		return shortBio;
+	}
+	public void setShortBio(String shortBio) {
+		this.shortBio = shortBio;
+	}
+
+
 
 }

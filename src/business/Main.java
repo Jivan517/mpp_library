@@ -61,7 +61,7 @@ public class Main extends Application{
 //		LoginForm lf = new LoginForm();
 //		lf.start(primaryStage);
 
-		MainForm mf = new MainForm();
+		CheckOut mf = new CheckOut();
 		mf.start(primaryStage);
 
 	}
