@@ -23,12 +23,12 @@ public class LibraryMemberDataAccess implements DataAccess {
 
 			LibraryMember member = (LibraryMember) obj;
 
-			FileOutputStream fileOut = new FileOutputStream(OUTPUT_DIR + memberID + ".ser");
+			FileOutputStream fileOut = new FileOutputStream(OUTPUT_DIR + memberID);
 			out = new ObjectOutputStream(fileOut);
 			out.writeObject(member);
 			out.close();
 			fileOut.close();
-			System.out.printf("\nSerialized library Member data is saved in " + OUTPUT_DIR + memberID + ".ser");
+			System.out.printf("\nSerialized library Member data is saved in " + OUTPUT_DIR + memberID);
 
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -46,7 +46,7 @@ public class LibraryMemberDataAccess implements DataAccess {
 		ObjectInputStream in = null;
 		LibraryMember member = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, memberID+".ser");
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, memberID);
 			in = new ObjectInputStream(Files.newInputStream(path));
 			member = (LibraryMember)in.readObject();
 		} catch(Exception e) {

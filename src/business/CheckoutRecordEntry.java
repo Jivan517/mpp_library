@@ -20,7 +20,7 @@ public class CheckoutRecordEntry implements Serializable {
 		this.copy = copy;
 		this.checkoutDate = checkoutDate;
 		this.dueDate = dueDate;
-		this.title="s";
+		this.title= copy.getBook().getTitle();
 	}
 
 

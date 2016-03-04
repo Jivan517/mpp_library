@@ -74,7 +74,7 @@ public LibraryMember(){
 
 	public void checkout(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate) {
 		CheckoutRecordEntry entry = new CheckoutRecordEntry(copy, checkoutDate, dueDate);
-		record.addEntry(entry);
+		record.addEntry(entry,this);
 	}
 
 	public CheckoutRecord getCheckoutRecord(){

@@ -61,7 +61,6 @@ public class CheckOut extends Application implements Initializable
 		copynum.setText(Integer.toString(book.numberOfCopies()));
 		author.setText(book.getAuthor());
 		availablenum.setText(Integer.toString(book.getAvailableNumber()));
-
 	}
 
 	@Override
@@ -86,7 +85,6 @@ public class CheckOut extends Application implements Initializable
 			populateTable(memberId, lm);
 		else
 			UILib.toast("No such Library Member!");
-
 	}
 
 	ObservableList<CheckoutRecordEntry> b;
@@ -151,11 +149,12 @@ public class CheckOut extends Application implements Initializable
 
 		LendableCopy copy = book.checkoutCopy();
 		if(copy != null){
-			currentMem.checkout(book.checkoutCopy(),  LocalDate.now(), LocalDate.now());
+			currentMem.checkout(copy,  LocalDate.now(), LocalDate.now());
 		}
 		else
 			UILib.toast("Sorry, No Available Copies for this Book!");
 		populateTable(currentMem.getMemberId(), currentMem);
+		this.setBookInfo();
 	}
 
 	@FXML

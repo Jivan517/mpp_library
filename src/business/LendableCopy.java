@@ -2,8 +2,6 @@ package business;
 
 import java.io.Serializable;
 
-import dataaccess.DataAccessFacade;
-
 public class LendableCopy implements Serializable {
 
 	private static final long serialVersionUID = -6307098549062543163L;
