@@ -73,12 +73,12 @@
                         <Insets left="30.0" />
                      </padding>
                   </Label>
-                  <Button fx:id="finerecords" mnemonicParsing="false" onAction="#checkFineRecords" prefHeight="30.0" prefWidth="120.0" stylesheets="@st.css" text="Fine Records" textFill="WHITE">
+                  <Button fx:id="finerecords" mnemonicParsing="false" onAction="#checkFineRecords" prefHeight="30.0" prefWidth="120.0" stylesheets="@st.css" text="Fine Records" textFill="WHITE" visible="false">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#printToConsole" prefHeight="30.0" prefWidth="80.0" text="Print" textFill="#807a7a">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#printToConsole" prefHeight="30.0" prefWidth="80.0" stylesheets="@st.css" text="Print" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -222,7 +222,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="checkin" mnemonicParsing="false" onAction="#handleCheckin" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: AAABBB;" text="Check In" textFill="WHITE">
+                  <Button fx:id="checkin" mnemonicParsing="false" onAction="#handleCheckin" prefHeight="40.0" prefWidth="130.0" stylesheets="@st.css" text="Check In" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" right="30.0" />
                      </HBox.margin>

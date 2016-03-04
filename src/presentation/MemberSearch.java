@@ -104,8 +104,20 @@ public class MemberSearch extends Application{
 				toast("MemberId, FirstName and LastName fields should not be empty!");
 				return;
 			}
-			if(zipCode != "" && Integer.parseInt(zipCode) == 0 ){
+			if(zipCode == "" || Integer.parseInt(zipCode) == 0 ){
 				toast("Please, enter valid zipcode!");
+				return;
+			}
+			try{
+				if(phone=="" || Integer.parseInt(phone) == 0)
+				{
+					toast("Please, enter valid phone number");
+					return;
+				}
+			}	
+			catch(NumberFormatException e){
+				toast("Please, enter valid phone number!");
+				return;
 			}
 
 

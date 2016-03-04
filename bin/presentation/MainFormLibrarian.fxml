@@ -18,7 +18,7 @@
                   <Font name="Corbel Bold" size="19.0" />
                </font>
             </Label>
-            <Button alignment="BASELINE_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#HandleLogout" stylesheets="@st.css" text="Logout" textFill="WHITE">
+            <Button alignment="BASELINE_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#HandleLogout" prefHeight="28.0" prefWidth="142.0" stylesheets="@st.css" text="Logout" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -31,7 +31,7 @@
             </Button>
          </children>
       </VBox>
-      <HBox fx:id="hbox3" prefHeight="220.0" prefWidth="460.0">
+      <HBox fx:id="hbox3" prefHeight="382.0" prefWidth="467.0">
          <children>
             <ImageView fitHeight="95.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -51,13 +51,21 @@
                         <Font name="Corbel Bold" size="14.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="25.0" top="50.0" />
+                        <Insets bottom="25.0" top="25.0" />
                      </VBox.margin>
                   </Button>
                   <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" prefHeight="52.0" prefWidth="153.0" stylesheets="@st.css" text="Checkout Book" textFill="#fffdfd">
                      <font>
                         <Font name="Corbel Bold" size="14.0" />
                      </font>
+                  </Button>
+                  <Button fx:id="btnFineRecords" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleFineRecordsButtonAction" prefHeight="52.0" prefWidth="153.0" stylesheets="@st.css" text="Fine Records" textFill="#fffdfd">
+                     <font>
+                        <Font name="Corbel Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
                   </Button>
                </children>
                <HBox.margin>

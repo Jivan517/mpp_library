@@ -118,11 +118,22 @@ public class AddMember extends Application {
 				toast("MemberId, FirstName and LastName fields should not be empty!");
 				return;
 			}
-			if(zipCode != "" && Integer.parseInt(zipCode) == 0 ){
+			//System.out.println(Integer.parseInt(zipCode) + zipCode);
+			if(zipCode == "" || Integer.parseInt(zipCode) == 0 ){
 				toast("Please, enter valid zipcode!");
+				return;
 			}
-
-
+			try{
+				if(phone=="" || Integer.parseInt(phone) == 0)
+				{
+					toast("Please, enter valid phone number");
+					return;
+				}
+			}	
+			catch(NumberFormatException e){
+				toast("Please, enter valid phone number!");
+				return;
+			}
 			LibraryMember member = new LibraryMember(memberId, firstName, lastName, phone, street, city, state, zipCode);
 
 			//This user will be the logged in user

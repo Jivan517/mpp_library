@@ -20,6 +20,7 @@ public class MainForm extends Application {
 	@FXML private Button btnAddCopy;
 	@FXML private Button btnListMember;
 	@FXML private Button btnSearchMember;
+	@FXML private Button btnFineRecords;
 
 	Stage prim;
 	@Override
@@ -38,7 +39,7 @@ public class MainForm extends Application {
 		}
 
 
-		Scene scene = new Scene(root, 450, 300);
+		Scene scene = new Scene(root, 500, 300);
 		primaryStage.setResizable(false);
 
 		String windowTitle = "Welcome - " + member .getName() + "!";
@@ -49,6 +50,12 @@ public class MainForm extends Application {
 		primaryStage.show();
 
 	}
+	@FXML protected void handleFineRecordsButtonAction(ActionEvent event) throws Exception {
+	       FineRecordsController am = new FineRecordsController();
+	       Stage stage = new Stage();
+	       stage.setUserData(sysUser);
+	       am.start(stage);
+ }
 	@FXML protected void handleAddMemberButtonAction(ActionEvent event) throws Exception {
 	       AddMember am = new AddMember();
 	       Stage stage = new Stage();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -7,11 +8,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="210.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
+<VBox prefHeight="283.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainForm">
    <children>
-      <HBox fx:id="hbox3" prefHeight="30.0" prefWidth="457.0">
+      <HBox fx:id="hbox3" alignment="CENTER" prefHeight="52.0" prefWidth="529.0" style="-fx-background-color: EE2E12;">
          <children>
-            <Label text="Administration Tasks">
+            <Label text="Administration Tasks" textFill="WHITE">
                <HBox.margin>
                   <Insets left="30.0" top="10.0" />
                </HBox.margin>
@@ -22,24 +23,29 @@
          </children></HBox>
       <HBox fx:id="hbox1" alignment="CENTER" prefHeight="100.0" prefWidth="319.0">
          <children>
-            <Button fx:id="btnAddMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddMemberButtonAction" prefHeight="27.0" prefWidth="120.0" text="Add Member">
+            <Button fx:id="btnAddMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddMemberButtonAction" prefHeight="50.0" prefWidth="120.0" stylesheets="@st.css" text="Add Member" textFill="WHITE">
                <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
+                  <Insets left="5.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnEditMember" contentDisplay="CENTER" layoutX="127.0" layoutY="47.0" mnemonicParsing="false" onAction="#handleEditMemberButtonAction" prefHeight="27.0" prefWidth="120.0" text="Edit Member" />
-            <Button fx:id="btnAddBook" mnemonicParsing="false" onAction="#handleAddBookButtonAction" text="Add Book">
+            <Button fx:id="btnEditMember" contentDisplay="CENTER" layoutX="127.0" layoutY="47.0" mnemonicParsing="false" onAction="#handleEditMemberButtonAction" prefHeight="50.0" prefWidth="120.0" stylesheets="@st.css" text="Edit Member" textFill="WHITE">
                <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
+                  <Insets left="5.0" right="10.0" top="10.0" />
+               </HBox.margin></Button>
+            <Button fx:id="btnAddBook" mnemonicParsing="false" onAction="#handleAddBookButtonAction" prefHeight="50.0" stylesheets="@st.css" text="Add Book" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnAddCopy" mnemonicParsing="false" onAction="#handleAddCopyButtonAction" text="Add Copy">
-			</Button>
+            <Button fx:id="btnAddCopy" mnemonicParsing="false" onAction="#handleAddCopyButtonAction" prefHeight="50.0" stylesheets="@st.css" text="Add Copy" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" right="10.0" top="10.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
-      <HBox prefHeight="30.0" prefWidth="509.0">
+      <HBox alignment="CENTER" prefHeight="51.0" prefWidth="529.0" style="-fx-background-color: EE2E12;">
          <children>
-            <Label text="Librarian Tasks">
+            <Label alignment="CENTER" text="Librarian Tasks" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -48,17 +54,21 @@
                </HBox.margin>
             </Label>
          </children>
+         <stylesheets>
+            <URL value="@st2.css" />
+            <URL value="@st.css" />
+         </stylesheets>
       </HBox>
       <HBox fx:id="hbox2" alignment="CENTER">
          <children>
-            <Button fx:id="btnListMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleListMemberButtonAction" text="List Member">
+            <Button fx:id="btnListMember" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleListMemberButtonAction" prefHeight="50.0" stylesheets="@st.css" text="List Member" textFill="WHITE">
                <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
+                  <Insets left="5.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" text="Checkout/Checkin Book">
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSearchMemberButtonAction" prefHeight="50.0" stylesheets="@st.css" text="Checkout/Checkin Book" textFill="WHITE">
                <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
+                  <Insets left="5.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Button>
          </children>
