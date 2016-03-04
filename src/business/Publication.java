@@ -9,7 +9,7 @@ abstract public class Publication implements Serializable {
 	private static final long serialVersionUID = 2010893663327964921L;
 	private LocalDate dateDue;
 	private String title;
-	private ArrayList<LendableCopy> copies;
+	protected ArrayList<LendableCopy> copies;
 	private int maxCheckoutLength;
 	public int numberOfCopies(){
 		return copies.size();

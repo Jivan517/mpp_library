@@ -75,7 +75,19 @@ public class Book extends Publication implements Serializable {
 		return b;
 
 	}
-
+	@Override
+	public void checkinCopy(LendableCopy copy){
+		LendableCopy p = null;
+		Book nb = Book.bookWithISBN(this.isbn);
+		for(int i = 0; i < this.numberOfCopies(); i++){
+			p = nb.copies.get(i);
+			if(p.getCopyId() == copy.getCopyId()){
+				p.setAvailable(true);
+				nb.save();
+				return ;
+			}
+		}
+	}
 	public void isAvailable(boolean b) {
 		available = b;
 	}

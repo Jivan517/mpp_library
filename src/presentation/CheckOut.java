@@ -37,6 +37,7 @@ public class CheckOut extends Application implements Initializable
 	private Book book;
 	private CheckoutRecord rc;
 	@FXML private Button checkin;
+	@FXML private Button finerecords;
 	private LibraryMember currentMem;
 	@FXML private Label memberName;
 	@FXML
@@ -81,6 +82,11 @@ public class CheckOut extends Application implements Initializable
 		primaryStage.show();
 
 		}
+	@FXML protected void checkFineRecords(ActionEvent event) throws Exception {
+		FineRecordsController rc = new FineRecordsController();
+		Stage stage = new Stage();
+	     rc.start(stage);
+	}
 	@FXML protected void handleCheckin(ActionEvent event) throws Exception {
 		CheckoutRecordEntry entry =  checkout_records.getSelectionModel().getSelectedItem();
 		if(entry.isReturned()){
@@ -90,6 +96,8 @@ public class CheckOut extends Application implements Initializable
 		entry.setReturnedDate(LocalDate.now());;
 		entry.setReturned(true);
 		rc.saveCheckoutRecord();
+		
+		entry.getCopy().getPublication().checkinCopy(entry.getCopy());
 		checkout_records.refresh();
 	}
 	@FXML protected void handleSearchMem(ActionEvent event) throws Exception {
