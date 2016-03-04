@@ -40,6 +40,9 @@ import java.util.List;
 		String pass = this.aclUser.getPassword();
 		return pass;
 	}
+	public String getName(){
+		return info.getName();
+	}
 	
 	@Override
 	public void AddAdminRole() {

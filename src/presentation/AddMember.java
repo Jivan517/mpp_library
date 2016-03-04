@@ -1,7 +1,8 @@
 package presentation;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-
+import javafx.scene.control.Alert.AlertType;
 import business.AdminRole;
 import business.LibraryMember;
 import business.SystemUser;
@@ -47,7 +48,16 @@ public class AddMember extends Application {
 			String city = txtCity.getText();
 			String zipCode = txtZip.getText();
 			String phone = txtPhone.getText();
-
+			
+			if(memberId.length() == 0 || firstName.length() == 0 || lastName.length() == 0){
+				toast("MemberId, FirstName and LastName fields should not be empty!");
+				return;
+			}
+			if(zipCode != "" && Integer.parseInt(zipCode) == 0 ){
+				toast("Please, enter valid zipcode!");
+			}
+			
+			
 			LibraryMember member = new LibraryMember(memberId, firstName + " " + lastName);
 
 			//This user will be the logged in user
@@ -68,6 +78,14 @@ public class AddMember extends Application {
 
 
 	}
+	
+	public void toast(String msg){
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Warning");
+		alert.setHeaderText(msg);
+		alert.showAndWait();
+	}
+	
 	@FXML protected void handleResetButtonAction(ActionEvent event) throws Exception {
 
 		txtmember_id.setText("");

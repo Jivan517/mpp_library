@@ -20,6 +20,7 @@ public class Book extends Publication implements Serializable {
 	private List<Author> authors;
 	private int maxCheckoutLength;
 
+	
 	public Book(String isbn, String title, List<Author> authors)
 	{
 		this.isbn = isbn;
