@@ -84,11 +84,11 @@ public class CheckOut extends Application implements Initializable
 
 		}
 
-//	@FXML protected void checkFineRecords(ActionEvent event) throws Exception {
-//		FineRecordsController rc = new FineRecordsController();
-//		Stage stage = new Stage();
-//	     rc.start(stage);
-//	}
+	@FXML protected void checkFineRecords(ActionEvent event) throws Exception {
+		FineRecordsController rc = new FineRecordsController();
+		Stage stage = new Stage();
+	     rc.start(stage);
+	}
 
 	@FXML protected void handleCheckin(ActionEvent event) throws Exception {
 		CheckoutRecordEntry entry =  checkout_records.getSelectionModel().getSelectedItem();
