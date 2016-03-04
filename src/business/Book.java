@@ -18,7 +18,7 @@ public class Book extends Publication implements Serializable {
 	private boolean popularity;
 	public boolean available;
 	private List<Author> authors;
-	private int maxCheckoutLength;
+	
 
 	public String getAuthorsName(){
 		String ret = "";
@@ -106,11 +106,4 @@ public class Book extends Publication implements Serializable {
 		this.id = id;
 	}
 
-	public int getMaxCheckoutLength() {
-		return maxCheckoutLength;
-	}
-
-	public void setMaxCheckoutLength(int maxCheckoutLength) {
-		this.maxCheckoutLength = maxCheckoutLength;
-	}
 }

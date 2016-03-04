@@ -21,6 +21,7 @@ public class CheckoutRecordEntry implements Serializable {
 		this.checkoutDate = checkoutDate;
 		this.dueDate = dueDate;
 		this.title= copy.getBook().getTitle();
+		this.returned = false;
 	}
 
 
@@ -79,5 +80,15 @@ public class CheckoutRecordEntry implements Serializable {
 	        checkoutDate.format(DateTimeFormatter.ofPattern(DataAccessFacade.DATE_PATTERN)) +
 	        ", dueDate: " + dueDate.format(DateTimeFormatter.ofPattern(DataAccessFacade.DATE_PATTERN)) +
 	        ", publication: " + copy + "]";
+	}
+
+
+	public boolean isReturned() {
+		return returned;
+	}
+
+
+	public void setReturned(boolean returned) {
+		this.returned = returned;
 	}
 }

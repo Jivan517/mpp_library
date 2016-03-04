@@ -16,6 +16,9 @@ public class LendableCopy implements Serializable {
 		this.publication = publication;
 	}
 
+	public Publication getPublication(){
+		return this.publication;
+	}
 	public Book getBook()
 	{
 		return (Book) this.publication;

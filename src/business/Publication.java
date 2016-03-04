@@ -10,6 +10,7 @@ abstract public class Publication implements Serializable {
 	private LocalDate dateDue;
 	private String title;
 	private ArrayList<LendableCopy> copies;
+	private int maxCheckoutLength;
 	public int numberOfCopies(){
 		return copies.size();
 	}
@@ -78,5 +79,11 @@ abstract public class Publication implements Serializable {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getMaxCheckoutLength() {
+		return maxCheckoutLength;
+	}
+	public void setMaxCheckoutLength(int maxCheckoutLength) {
+		this.maxCheckoutLength = maxCheckoutLength;
 	}
 }
