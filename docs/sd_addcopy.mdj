@@ -542,173 +542,6 @@
 								},
 								{
 									"_type": "UMLSeqMessageView",
-									"_id": "AAAAAAFTLfdFOY3emlI=",
-									"_parent": {
-										"$ref": "AAAAAAFTLfL0koz//Y4="
-									},
-									"model": {
-										"$ref": "AAAAAAFTLfdFOI3dYEw="
-									},
-									"subViews": [
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAFTLfdFOY3fUes=",
-											"_parent": {
-												"$ref": "AAAAAAFTLfdFOY3emlI="
-											},
-											"model": {
-												"$ref": "AAAAAAFTLfdFOI3dYEw="
-											},
-											"visible": true,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;0",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 458,
-											"top": 71,
-											"width": 172,
-											"height": 13,
-											"autoResize": false,
-											"alpha": -4.086904305257119,
-											"distance": 22.20360331117452,
-											"hostEdge": {
-												"$ref": "AAAAAAFTLfdFOY3emlI="
-											},
-											"edgePosition": 1,
-											"underline": false,
-											"text": "1 : addBookCopy(book,count)",
-											"horizontalAlignment": 2,
-											"verticalAlignment": 5
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAFTLfdFOo3gYhI=",
-											"_parent": {
-												"$ref": "AAAAAAFTLfdFOY3emlI="
-											},
-											"model": {
-												"$ref": "AAAAAAFTLfdFOI3dYEw="
-											},
-											"visible": false,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;0",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 550,
-											"top": 83,
-											"width": 0,
-											"height": 13,
-											"autoResize": false,
-											"alpha": 1.5707963267948966,
-											"distance": 25,
-											"hostEdge": {
-												"$ref": "AAAAAAFTLfdFOY3emlI="
-											},
-											"edgePosition": 1,
-											"underline": false,
-											"horizontalAlignment": 2,
-											"verticalAlignment": 5
-										},
-										{
-											"_type": "EdgeLabelView",
-											"_id": "AAAAAAFTLfdFOo3hPak=",
-											"_parent": {
-												"$ref": "AAAAAAFTLfdFOY3emlI="
-											},
-											"model": {
-												"$ref": "AAAAAAFTLfdFOI3dYEw="
-											},
-											"visible": false,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;0",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 516,
-											"top": 84,
-											"width": 0,
-											"height": 13,
-											"autoResize": false,
-											"alpha": -1.5707963267948966,
-											"distance": 10,
-											"hostEdge": {
-												"$ref": "AAAAAAFTLfdFOY3emlI="
-											},
-											"edgePosition": 1,
-											"underline": false,
-											"horizontalAlignment": 2,
-											"verticalAlignment": 5
-										},
-										{
-											"_type": "UMLActivationView",
-											"_id": "AAAAAAFTLfdFOo3iV2E=",
-											"_parent": {
-												"$ref": "AAAAAAFTLfdFOY3emlI="
-											},
-											"model": {
-												"$ref": "AAAAAAFTLfdFOI3dYEw="
-											},
-											"visible": true,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;0",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 489,
-											"top": 100,
-											"width": 14,
-											"height": 29,
-											"autoResize": false
-										}
-									],
-									"visible": true,
-									"enabled": true,
-									"lineColor": "#000000",
-									"fillColor": "#ffffff",
-									"fontColor": "#000000",
-									"font": "Arial;13;0",
-									"showShadow": true,
-									"containerChangeable": false,
-									"containerExtending": false,
-									"head": {
-										"$ref": "AAAAAAFTLfREHY1Toyc="
-									},
-									"tail": {
-										"$ref": "AAAAAAFTLfREHY1Toyc="
-									},
-									"lineStyle": 0,
-									"points": "496:80;526:80;526:100;502:100",
-									"nameLabel": {
-										"$ref": "AAAAAAFTLfdFOY3fUes="
-									},
-									"stereotypeLabel": {
-										"$ref": "AAAAAAFTLfdFOo3gYhI="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAFTLfdFOo3hPak="
-									},
-									"activation": {
-										"$ref": "AAAAAAFTLfdFOo3iV2E="
-									},
-									"showProperty": true,
-									"showType": true
-								},
-								{
-									"_type": "UMLSeqMessageView",
 									"_id": "AAAAAAFTLfOxLY0yA4I=",
 									"_parent": {
 										"$ref": "AAAAAAFTLfL0koz//Y4="
@@ -747,7 +580,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "2 : addCopy",
+											"text": "1 : addCopy",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1112,7 +945,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "3 : new",
+											"text": "2 : new",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1477,7 +1310,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "4 : bookWithISBN(isbn)",
+											"text": "3 : bookWithISBN(isbn)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1644,7 +1477,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "5 : read(isbn)",
+											"text": "4 : read(isbn)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1811,7 +1644,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "6 : setBookInfo(book)",
+											"text": "5 : setBookInfo(book)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1978,7 +1811,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "7 : handleAddButtonAction",
+											"text": "6 : handleAddButtonAction",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2145,7 +1978,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "8 : addCopy(copyid)",
+											"text": "7 : addCopy(copyid)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2312,7 +2145,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "9 : save(book)",
+											"text": "8 : save(book)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2467,9 +2300,9 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 493,
+											"left": 497,
 											"top": 419,
-											"width": 96,
+											"width": 89,
 											"height": 13,
 											"autoResize": false,
 											"alpha": 1.5707963267948966,
@@ -2479,7 +2312,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "10 : setBookInfo",
+											"text": "9 : setBookInfo",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2615,24 +2448,6 @@
 					"visibility": "public",
 					"isReentrant": true,
 					"messages": [
-						{
-							"_type": "UMLMessage",
-							"_id": "AAAAAAFTLfdFOI3dYEw=",
-							"_parent": {
-								"$ref": "AAAAAAFTLfL0koz+6so="
-							},
-							"name": "addBookCopy",
-							"source": {
-								"$ref": "AAAAAAFTLfREGY1MsLA="
-							},
-							"target": {
-								"$ref": "AAAAAAFTLfREGY1MsLA="
-							},
-							"visibility": "public",
-							"messageSort": "synchCall",
-							"arguments": "book,count",
-							"isConcurrentIteration": false
-						},
 						{
 							"_type": "UMLMessage",
 							"_id": "AAAAAAFTLfOxLI0x4gg=",
