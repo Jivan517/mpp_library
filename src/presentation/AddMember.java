@@ -28,49 +28,49 @@ public class AddMember extends Application {
 	@FXML private TextField txtZip;
 	@FXML private TextField txtPhone;
 	public static LibraryMember member;
-public AddMember(){
-	member=null;
-}
-public AddMember(LibraryMember member){
-	this.member = member;
-	firstName = member.getFirstName();
-}
-private void initMember(){
-
-	System.out.println(firstName);
-	txtmember_id= new TextField();
-	txtmember_id.setText(firstName);
-	txtmember_id.commitValue();
-	System.out.println("1");
-	txtFirstName= new TextField();
-	txtFirstName.setText(member.getFirstName());
-	System.out.println(member.getFirstName());
-	//System.out.println("1");
-	txtLastName= new TextField();
-	txtLastName.setText(member.getLastName());
-	//System.out.println("1");
-
-	Address add = member.getAddress();
-	txtStreet= new TextField();
-	txtStreet.setText(add.getStreet());
-	txtState= new TextField();
-	txtState.setText(add.getState());
-	txtCity= new TextField();
-	txtCity.setText(add.getCity());
-	txtZip= new TextField();
-	txtZip.setText(add.getZipcode());
-	txtPhone= new TextField();
-	txtPhone.setText(member.getPhone());
-	txtmember_id.setDisable(true);
-}
-@Override
-
-public void init() throws Exception {
-	System.out.println("init!");
-	if(member!=null){
-		initMember();
+	public AddMember(){
+		member=null;
 	}
-}
+	public AddMember(LibraryMember member){
+		this.member = member;
+		firstName = member.getFirstName();
+	}
+	private void initMember(){
+
+		System.out.println(firstName);
+		txtmember_id= new TextField();
+		txtmember_id.setText(firstName);
+		txtmember_id.commitValue();
+		System.out.println("1");
+		txtFirstName= new TextField();
+		txtFirstName.setText(member.getFirstName());
+		System.out.println(member.getFirstName());
+		//System.out.println("1");
+		txtLastName= new TextField();
+		txtLastName.setText(member.getLastName());
+		//System.out.println("1");
+	
+		Address add = member.getAddress();
+		txtStreet= new TextField();
+		txtStreet.setText(add.getStreet());
+		txtState= new TextField();
+		txtState.setText(add.getState());
+		txtCity= new TextField();
+		txtCity.setText(add.getCity());
+		txtZip= new TextField();
+		txtZip.setText(add.getZipcode());
+		txtPhone= new TextField();
+		txtPhone.setText(member.getPhone());
+		txtmember_id.setDisable(true);
+	}
+	@Override
+	
+	public void init() throws Exception {
+		System.out.println("init!");
+		if(member!=null){
+			initMember();
+		}
+	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
