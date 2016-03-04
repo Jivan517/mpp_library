@@ -159,17 +159,6 @@
                   <Font name="Corbel Bold" size="19.0" />
                </font>
             </Label>
-            <Button alignment="BASELINE_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#HandleLogout" stylesheets="@st.css" text="Logout" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets left="400.0" />
-               </VBox.margin>
-            </Button>
          </children>
       </VBox>
    </top>

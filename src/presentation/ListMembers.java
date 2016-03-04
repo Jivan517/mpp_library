@@ -70,11 +70,4 @@ public class ListMembers extends Application implements Initializable{
 		arg0.show();
 	}
 
-	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
-		((Node)(event.getSource())).getScene().getWindow().hide();
-
-		LoginForm lf = new LoginForm();
-		Stage stage = new Stage();
-		lf.start(stage);
-	}
 }

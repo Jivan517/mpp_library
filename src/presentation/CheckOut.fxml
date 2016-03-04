@@ -19,17 +19,7 @@
                   <Font name="System Bold" size="18.0" />
                 </font>
               </Label>
-                  <Button alignment="BASELINE_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#HandleLogout" stylesheets="@st.css" text="Logout" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets left="500.0" />
-                     </VBox.margin>
-                  </Button>
+
                </children>
             </VBox>
             <HBox prefHeight="100.0" prefWidth="200.0">

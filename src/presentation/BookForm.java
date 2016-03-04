@@ -128,13 +128,6 @@ public class BookForm extends Application {
 
 	}
 
-	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
-		((Node)(event.getSource())).getScene().getWindow().hide();
-
-		LoginForm lf = new LoginForm();
-		Stage stage = new Stage();
-		lf.start(stage);
-	}
 
 }
 
