@@ -5,9 +5,11 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class MainForm extends Application {
@@ -19,7 +21,7 @@ public class MainForm extends Application {
 	@FXML private Button btnListMember;
 	@FXML private Button btnSearchMember;
 
-
+	Stage prim;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
@@ -36,7 +38,7 @@ public class MainForm extends Application {
 		}
 
 
-		Scene scene = new Scene(root, 500, 200);
+		Scene scene = new Scene(root, 450, 300);
 		primaryStage.setResizable(false);
 
 		String windowTitle = "Welcome - " + member .getName() + "!";
@@ -45,8 +47,6 @@ public class MainForm extends Application {
 		primaryStage.setTitle(windowTitle);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-
-
 
 	}
 	@FXML protected void handleAddMemberButtonAction(ActionEvent event) throws Exception {
@@ -65,7 +65,9 @@ public class MainForm extends Application {
 	@FXML protected void handleListMemberButtonAction(ActionEvent event) throws Exception{
 	       ListMembers ms = new ListMembers();
 	       Stage stage = new Stage();
-	       ms.start(stage);
+	       //ms.start(stage);
+
+	       start(stage);
 
     }
 	@FXML protected void handleSearchMemberButtonAction(ActionEvent event)  throws Exception {
@@ -83,5 +85,13 @@ public class MainForm extends Application {
 	       Stage stage = new Stage();
 	       ac.start(stage);
     }
+
+	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
+		((Node)(event.getSource())).getScene().getWindow().hide();
+
+		LoginForm lf = new LoginForm();
+		Stage stage = new Stage();
+		lf.start(stage);
+	}
 
 }

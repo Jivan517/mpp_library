@@ -48,7 +48,7 @@ public class FineRecordDataAccess implements DataAccess {
 		ObjectInputStream in = null;
 		FineRecord fines = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, name);
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, name + ".ser");
 			in = new ObjectInputStream(Files.newInputStream(path));
 			fines = (FineRecord)in.readObject();
 		} catch(Exception e) {

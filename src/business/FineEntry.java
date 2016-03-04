@@ -11,21 +11,25 @@ public class FineEntry implements Serializable {
 	private static final long serialVersionUID = 12345654L;
 	private LendableCopy copy;
 	private LocalDate datePaid;
+	private String title;
 	private LocalDate returnDate;
 	private double fineValue;
+	private boolean paid;
+	private CheckoutRecordEntry checkoutRecordEntry;
 
-
-	public FineEntry(LendableCopy copy, LocalDate datePaid, LocalDate returnDate, double fineValue,
+	public FineEntry(LocalDate datePaid, LocalDate returnDate, double fineValue,
 			CheckoutRecordEntry checkoutRecordEntry) {
 		super();
-		this.copy = copy;
+		this.copy = checkoutRecordEntry.getCopy();
 		this.datePaid = datePaid;
+		this.setTitle(this.copy.getBook().getTitle());
 		this.returnDate = returnDate;
 		this.fineValue = fineValue;
+		this.paid = false;
 		this.checkoutRecordEntry = checkoutRecordEntry;
 	}
 
-	private CheckoutRecordEntry checkoutRecordEntry;
+	
 	public LendableCopy getCopy() {
 		return copy;
 	}
@@ -55,5 +59,21 @@ public class FineEntry implements Serializable {
 	}
 	public void setCheckoutRecordEntry(CheckoutRecordEntry checkoutRecordEntry) {
 		this.checkoutRecordEntry = checkoutRecordEntry;
+	}
+	public boolean isPaid() {
+		return paid;
+	}
+	public void setPaid(boolean paid) {
+		this.paid = paid;
+	}
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

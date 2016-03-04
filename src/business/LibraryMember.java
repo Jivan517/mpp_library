@@ -14,9 +14,8 @@ public class LibraryMember implements Serializable {
 	private String memberId;
 	private transient DataAccessFacade accessFacade = new DataAccessFacade();
 
-public LibraryMember(){
-
-}
+	public LibraryMember(){
+	}
 	public LibraryMember(String memberId, String firstName, String lastName, String phone, String street, String city, String state, String zip) {
 
 		this.personalInfo = new PersonalInfo(firstName, lastName, phone, street, city, state, zip);
@@ -90,5 +89,14 @@ public LibraryMember(){
 	}
 	public String getPhone(){
 		return this.personalInfo.getPhone();
+	}
+	public void addFineEntry(CheckoutRecordEntry re, double fine){
+		FineRecord fr = FineRecord.readFineRecord(this.memberId);
+		if(fr == null){
+			fr = new FineRecord(this);
+		}
+		FineEntry fe = new FineEntry(null, re.getReturnedDate(), fine, re);
+		fr.addEntry(fe);
+		fr.save(this.memberId);
 	}
 }
