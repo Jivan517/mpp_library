@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -74,7 +75,7 @@ public class AddMember extends Application {
 	public void start(Stage primaryStage) throws Exception {
 
 		Parent root = FXMLLoader.load(getClass().getResource("AddMember.fxml"));
-		Scene scene = new Scene(root, 500, 400);
+		Scene scene = new Scene(root, 500, 700);
 		sysUser = primaryStage.getUserData();
 		primaryStage.show();
 		//if(member!=null){
@@ -87,12 +88,9 @@ public class AddMember extends Application {
 			initMember();
 		}
 
-		System.out.println("b4 calling the initMember");
-
 		if(txtmember_id!=null)
 		txtmember_id.setText("someText");
 		if(member!=null){
-			System.out.println("calling the initMember");
 			initMember();
 		}
 		primaryStage.setResizable(false);
@@ -183,5 +181,13 @@ public class AddMember extends Application {
 		txtZip.setText("");
 		txtPhone.setText("");
 
+	}
+
+	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
+		((Node)(event.getSource())).getScene().getWindow().hide();
+
+		LoginForm lf = new LoginForm();
+		Stage stage = new Stage();
+		lf.start(stage);
 	}
 }

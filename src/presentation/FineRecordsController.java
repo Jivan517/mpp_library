@@ -15,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -49,7 +50,7 @@ public class FineRecordsController extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		Parent root = FXMLLoader.load(getClass().getResource("FineRecordsController.fxml"));
-		Scene scene = new Scene(root, 950, 620);
+		Scene scene = new Scene(root, 750, 620);
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Fine Records");
 		primaryStage.setScene(scene);
@@ -60,7 +61,7 @@ public class FineRecordsController extends Application {
 
 		DataAccessFacade accessFacade = new DataAccessFacade();
 		LibraryMember lm = (LibraryMember) accessFacade.readLibraryMember(memberId);
-		
+
 		if(lm!=null){
 			membername.setText(lm.getFirstName() + " " + lm.getLastName());
 			populateTable(memberId, lm);
@@ -79,9 +80,9 @@ public class FineRecordsController extends Application {
 		fr.save(currentMem.getMemberId());
 		tableview.refresh();
 	}
-	
+
 	ObservableList<FineEntry> b;
-	
+
 	private void populateTable(String memberId, LibraryMember lm) {
 		currentMem=lm;
 		fr =  FineRecord.readFineRecord(memberId);
@@ -101,7 +102,17 @@ public class FineRecordsController extends Application {
 			tableview.setItems(b);
 
 		}
+
+
 //		else
 //			UILib.toast("No Entry For this Library Member!");
+	}
+
+	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
+		((Node)(event.getSource())).getScene().getWindow().hide();
+
+		LoginForm lf = new LoginForm();
+		Stage stage = new Stage();
+		lf.start(stage);
 	}
 }

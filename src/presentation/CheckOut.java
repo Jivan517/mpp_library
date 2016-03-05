@@ -76,7 +76,7 @@ public class CheckOut extends Application implements Initializable
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("CheckOut.fxml"));
-		Scene scene = new Scene(root, 850, 720);
+		Scene scene = new Scene(root, 589, 720);
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Book Check out");
 		primaryStage.setScene(scene);
@@ -145,9 +145,9 @@ public class CheckOut extends Application implements Initializable
 			checkout_records.setItems(b);
 
 		}
-//		else
-//			UILib.toast("No Entry For this Library Member!");
-	}
+		else
+			memberName.setText("No Checkout Record Data");
+			}
 
 	@FXML protected void handleSearchBookCopy(ActionEvent event) throws Exception {
 
@@ -193,6 +193,7 @@ public class CheckOut extends Application implements Initializable
 			int d = copy.getPublication().getMaxCheckoutLength();
 			System.out.printf("day=%d\n", d);
 			currentMem.checkout(copy,  LocalDate.now(), LocalDate.now().plusDays(d));
+			UILib.toast("Successfull!");
 		}
 		else
 			UILib.toast("Sorry, No Available Copies for this Book!");
@@ -207,6 +208,14 @@ public class CheckOut extends Application implements Initializable
 		{
 			System.out.println("  	  |         "+e.getTitle()+"  	  |         "+e.getCheckoutDate()+"         |     "+e.getDueDate()+"     |     \n");
 		}
+	}
+
+	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
+		((Node)(event.getSource())).getScene().getWindow().hide();
+
+		LoginForm lf = new LoginForm();
+		Stage stage = new Stage();
+		lf.start(stage);
 	}
 
 	@Override

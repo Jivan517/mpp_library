@@ -65,10 +65,7 @@ public class MainForm extends Application {
 	@FXML protected void handleListMemberButtonAction(ActionEvent event) throws Exception{
 	       ListMembers ms = new ListMembers();
 	       Stage stage = new Stage();
-	       //ms.start(stage);
-
-	       start(stage);
-
+	       ms.start(stage);
     }
 	@FXML protected void handleSearchMemberButtonAction(ActionEvent event)  throws Exception {
 	       CheckOut co = new CheckOut();

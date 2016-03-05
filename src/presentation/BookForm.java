@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -33,8 +34,8 @@ public class BookForm extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		Parent root = FXMLLoader.load(getClass().getResource("BookForm.fxml"));
-		Scene scene = new Scene(root, 1000, 700);
-		primaryStage.setResizable(true);
+		Scene scene = new Scene(root, 450, 750);
+		primaryStage.setResizable(false);
 		primaryStage.setTitle("Add/Edit Book");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -65,7 +66,7 @@ public class BookForm extends Application {
 		if(book == null){
 			book = new Book();
 		}
-	       
+
 	       book.setTitle(title.getText());
 	       book.setISBN(isbn.getText());
 	       book.setId(System.nanoTime()/1000);
@@ -77,7 +78,7 @@ public class BookForm extends Application {
 	       toast("Add book success!");
 	       handleResetButtonAction(null);
 	}
-		
+
 	@FXML public void handleResetButtonAction(ActionEvent event) {
 	        title.setText("");
 	        isbn.setText("");
@@ -113,7 +114,7 @@ public class BookForm extends Application {
 		this.clearFields();
 	}
 
-	
+
 	private void clearFields(){
 		credential.setText("");
 		bio.setText("");
@@ -126,5 +127,15 @@ public class BookForm extends Application {
 		txtPhone.setText("");
 
 	}
+
+	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
+		((Node)(event.getSource())).getScene().getWindow().hide();
+
+		LoginForm lf = new LoginForm();
+		Stage stage = new Stage();
+		lf.start(stage);
+	}
+
 }
+
 

@@ -11,9 +11,11 @@ import dataaccess.LibraryMemberDataAccess;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -66,5 +68,13 @@ public class ListMembers extends Application implements Initializable{
 		arg0.setTitle("Library Members List");
 		arg0.setScene(scene);
 		arg0.show();
+	}
+
+	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
+		((Node)(event.getSource())).getScene().getWindow().hide();
+
+		LoginForm lf = new LoginForm();
+		Stage stage = new Stage();
+		lf.start(stage);
 	}
 }
