@@ -90,4 +90,13 @@ public class LibraryMember implements Serializable {
 	public String getPhone(){
 		return this.personalInfo.getPhone();
 	}
+	public void addFineEntry(CheckoutRecordEntry re, double fine){
+		FineRecord fr = FineRecord.readFineRecord(this.memberId);
+		if(fr == null){
+			fr = new FineRecord(this);
+		}
+		FineEntry fe = new FineEntry(null, re.getReturnedDate(), fine, re);
+		fr.addEntry(fe);
+		fr.save(this.memberId);
+	}
 }

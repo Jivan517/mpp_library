@@ -24,15 +24,15 @@
         <TextField fx:id="mem_id" prefHeight="24.0" prefWidth="132.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2" />
         <Button mnemonicParsing="false" onAction="#handleResetButtonAction" prefWidth="102.0" text="Other" GridPane.columnIndex="4" GridPane.rowIndex="22" />
         <Button mnemonicParsing="false" onAction="#handleDoneButtonAction" prefWidth="101.0" text="Done" GridPane.columnIndex="6" GridPane.rowIndex="22" />
-        <TableView fx:id="checkout_records" prefHeight="240.0" prefWidth="542.0" GridPane.columnIndex="2" GridPane.columnSpan="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.rowSpan="7">
+        <TableView fx:id="checkout_records" prefHeight="210.0" prefWidth="512.0" GridPane.columnIndex="2" GridPane.columnSpan="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.rowSpan="7">
           <columns>
             <TableColumn fx:id="title" maxWidth="5000.0" minWidth="10.0" prefWidth="167.0" text="Book Title" />
-            <TableColumn fx:id="checkout_date" maxWidth="5000.0" minWidth="10.0" prefWidth="190.0" text="Checkout Date" />
-            <TableColumn fx:id="due_date" maxWidth="5000.0" minWidth="10.0" prefWidth="187.0" text="Due Date" />
-                  <TableColumn fx:id="checkin" prefWidth="98.0" text="Check in" />
+            <TableColumn fx:id="checkout_date" maxWidth="5000.0" minWidth="10.0" prefWidth="193.0" text="Checkout Date" />
+            <TableColumn fx:id="due_date" maxWidth="5000.0" minWidth="10.0" prefWidth="169.0" text="Due Date" />
+                  <TableColumn fx:id="rtstatus" prefWidth="114.0" text="Returned Date" />
           </columns>
         </TableView>
-        <Button mnemonicParsing="false" onAction="#handleCheckOutButton" prefWidth="184.0" text="Check Out" GridPane.columnIndex="2" GridPane.rowIndex="22" />
+        <Button mnemonicParsing="false" onAction="#handleCheckOutButton" prefHeight="27.0" prefWidth="161.0" text="Check Out" GridPane.columnIndex="2" GridPane.rowIndex="22" />
         <Label text="Checkout Records" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
         <TextField fx:id="isbn_num" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="13" />
         <Label alignment="BASELINE_RIGHT" contentDisplay="RIGHT" prefHeight="16.0" prefWidth="166.0" text="ISBN" GridPane.columnIndex="2" GridPane.rowIndex="13">
@@ -41,7 +41,7 @@
                </font></Label>
         <Button mnemonicParsing="false" onAction="#handleSearchMem" prefWidth="189.0" text="Search" GridPane.columnIndex="5" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" onAction="#handleSearchBookCopy" prefHeight="24.0" prefWidth="84.0" text="Search" GridPane.columnIndex="5" GridPane.rowIndex="13" />
-            <Button alignment="BASELINE_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#printToConsole" prefHeight="24.0" prefWidth="41.0" text="Print" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <Button alignment="BASELINE_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#printToConsole" prefHeight="27.0" prefWidth="61.0" text="Print" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
             <VBox prefHeight="162.0" prefWidth="229.0" GridPane.columnIndex="2" GridPane.columnSpan="5" GridPane.rowIndex="15" GridPane.rowSpan="5">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -90,6 +90,8 @@
             </HBox>
             <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="159.0" text="Member Name" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label fx:id="memberName" prefHeight="17.0" prefWidth="170.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Button fx:id="checkin" mnemonicParsing="false" onAction="#handleCheckin" prefHeight="27.0" prefWidth="83.0" text="Check In" GridPane.columnIndex="5" GridPane.rowIndex="22" />
+            <Button fx:id="finerecords" mnemonicParsing="false" onAction="#checkFineRecords" prefHeight="27.0" prefWidth="99.0" text="Fine Records" GridPane.columnIndex="5" GridPane.rowIndex="4" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="17.0" />

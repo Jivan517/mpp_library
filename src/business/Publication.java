@@ -9,7 +9,8 @@ abstract public class Publication implements Serializable {
 	private static final long serialVersionUID = 2010893663327964921L;
 	private LocalDate dateDue;
 	private String title;
-	private ArrayList<LendableCopy> copies;
+	protected ArrayList<LendableCopy> copies;
+	private int maxCheckoutLength;
 	public int numberOfCopies(){
 		return copies.size();
 	}
@@ -78,5 +79,11 @@ abstract public class Publication implements Serializable {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getMaxCheckoutLength() {
+		return maxCheckoutLength;
+	}
+	public void setMaxCheckoutLength(int maxCheckoutLength) {
+		this.maxCheckoutLength = maxCheckoutLength;
 	}
 }

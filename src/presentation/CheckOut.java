@@ -1,9 +1,11 @@
 package presentation;
 
+import java.beans.EventHandler;
 import java.net.URL;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
+import java.time.temporal.ChronoUnit;
 import business.Book;
 import business.CheckoutRecord;
 import business.CheckoutRecordEntry;
@@ -23,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -31,7 +34,11 @@ import javafx.stage.Stage;
 
 public class CheckOut extends Application implements Initializable
 {
+
 	private Book book;
+	private CheckoutRecord rc;
+	@FXML private Button checkin;
+	@FXML private Button finerecords;
 	private LibraryMember currentMem;
 	@FXML private Label memberName;
 	@FXML
@@ -50,9 +57,9 @@ public class CheckOut extends Application implements Initializable
 
 	@FXML
 	private TableColumn<CheckoutRecordEntry, String> title;
-
 	@FXML
-	private TableColumn<CheckoutRecordEntry, Button> checkin;
+	private TableColumn<CheckoutRecordEntry, String> rtstatus;
+
 
 	@FXML private Label isbn, btitle,  copynum, author, popular, availablenum;
 	@FXML private Label bid;
@@ -69,7 +76,7 @@ public class CheckOut extends Application implements Initializable
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("CheckOut.fxml"));
-		Scene scene = new Scene(root, 650, 720);
+		Scene scene = new Scene(root, 850, 720);
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Book Check out");
 		primaryStage.setScene(scene);
@@ -77,6 +84,31 @@ public class CheckOut extends Application implements Initializable
 
 		}
 
+//	@FXML protected void checkFineRecords(ActionEvent event) throws Exception {
+//		FineRecordsController rc = new FineRecordsController();
+//		Stage stage = new Stage();
+//	     rc.start(stage);
+//	}
+
+	@FXML protected void handleCheckin(ActionEvent event) throws Exception {
+		CheckoutRecordEntry entry =  checkout_records.getSelectionModel().getSelectedItem();
+		if(entry.isReturned()){
+			UILib.toast("This book has been returned!");
+			return;
+		}
+		entry.setReturnedDate(LocalDate.now());;
+		entry.setReturned(true);
+		rc.saveCheckoutRecord();
+
+		entry.getCopy().getPublication().checkinCopy(entry.getCopy());
+		checkout_records.refresh();
+		if(entry.getDueDate().isBefore(entry.getReturnedDate())){
+			//fine
+			double fineperday = 1.0;
+			int days = (int) Duration.between(entry.getDueDate().atTime(0, 0), entry.getReturnedDate().atTime(0, 0)).toDays();
+			currentMem.addFineEntry(entry, fineperday * days);
+		}
+	}
 	@FXML protected void handleSearchMem(ActionEvent event) throws Exception {
 
 		String memberId = mem_id.getText();
@@ -96,7 +128,7 @@ public class CheckOut extends Application implements Initializable
 
 	private void populateTable(String memberId, LibraryMember lm) {
 		currentMem=lm;
-		CheckoutRecord rc = new CheckoutRecord().readCheckoutRecord(memberId);
+		rc = new CheckoutRecord().readCheckoutRecord(memberId);
 		if(rc!=null)
 		{
 			b = FXCollections.observableArrayList();
@@ -107,9 +139,9 @@ public class CheckOut extends Application implements Initializable
 			}
 
 			title.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("title"));
-			due_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("checkoutDate"));
+			due_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("dueDate"));
 			checkout_date.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("checkoutDate"));
-			
+			rtstatus.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry,String>("returnedDate"));
 			checkout_records.setItems(b);
 
 		}
@@ -152,9 +184,15 @@ public class CheckOut extends Application implements Initializable
 
 	@FXML protected void handleCheckOutButton(ActionEvent event) throws Exception {
 
+		if(isbn.getText().length() == 0){
+			UILib.toast("Please input the ISBN first");
+			return;
+		}
 		LendableCopy copy = book.checkoutCopy();
 		if(copy != null){
-			currentMem.checkout(copy,  LocalDate.now(), LocalDate.now());
+			int d = copy.getPublication().getMaxCheckoutLength();
+			System.out.printf("day=%d\n", d);
+			currentMem.checkout(copy,  LocalDate.now(), LocalDate.now().plusDays(d));
 		}
 		else
 			UILib.toast("Sorry, No Available Copies for this Book!");
