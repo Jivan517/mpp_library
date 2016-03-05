@@ -129,7 +129,7 @@ public class AddMember extends Application {
 					toast("Please, enter valid phone number");
 					return;
 				}
-			}	
+			}
 			catch(NumberFormatException e){
 				toast("Please, enter valid phone number!");
 				return;
@@ -192,13 +192,5 @@ public class AddMember extends Application {
 		txtZip.setText("");
 		txtPhone.setText("");
 
-	}
-
-	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
-		((Node)(event.getSource())).getScene().getWindow().hide();
-
-		LoginForm lf = new LoginForm();
-		Stage stage = new Stage();
-		lf.start(stage);
 	}
 }

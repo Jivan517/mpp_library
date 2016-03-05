@@ -75,7 +75,7 @@ public class CheckOut extends Application implements Initializable
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("CheckOut.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("CheckOut.fxml"));
 		Scene scene = new Scene(root, 589, 720);
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Book Check out");
@@ -208,14 +208,6 @@ public class CheckOut extends Application implements Initializable
 		{
 			System.out.println("  	  |         "+e.getTitle()+"  	  |         "+e.getCheckoutDate()+"         |     "+e.getDueDate()+"     |     \n");
 		}
-	}
-
-	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
-		((Node)(event.getSource())).getScene().getWindow().hide();
-
-		LoginForm lf = new LoginForm();
-		Stage stage = new Stage();
-		lf.start(stage);
 	}
 
 	@Override

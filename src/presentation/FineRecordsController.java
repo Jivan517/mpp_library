@@ -108,11 +108,4 @@ public class FineRecordsController extends Application {
 //			UILib.toast("No Entry For this Library Member!");
 	}
 
-	@FXML protected void HandleLogout(ActionEvent event) throws Exception {
-		((Node)(event.getSource())).getScene().getWindow().hide();
-
-		LoginForm lf = new LoginForm();
-		Stage stage = new Stage();
-		lf.start(stage);
-	}
 }
