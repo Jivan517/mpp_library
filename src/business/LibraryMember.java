@@ -14,9 +14,8 @@ public class LibraryMember implements Serializable {
 	private String memberId;
 	private transient DataAccessFacade accessFacade = new DataAccessFacade();
 
-public LibraryMember(){
-
-}
+	public LibraryMember(){
+	}
 	public LibraryMember(String memberId, String firstName, String lastName, String phone, String street, String city, String state, String zip) {
 
 		this.personalInfo = new PersonalInfo(firstName, lastName, phone, street, city, state, zip);
