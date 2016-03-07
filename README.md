@@ -1,2 +1,5 @@
 # mpp_library
-Jan 2016 Entry, project for MPP course, MUM
+Team project for Modern Programming Practices course at Maharishi University of Management for Spring 2016
+
+Tools:
+JavaFx, Scenebuilder
