@@ -2,9 +2,10 @@ package presentation;
 
 import java.beans.EventHandler;
 import java.net.URL;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
+import java.time.temporal.ChronoUnit;
 import business.Book;
 import business.CheckoutRecord;
 import business.CheckoutRecordEntry;
@@ -99,6 +100,12 @@ public class CheckOut extends Application implements Initializable
 		
 		entry.getCopy().getPublication().checkinCopy(entry.getCopy());
 		checkout_records.refresh();
+		if(entry.getDueDate().isBefore(entry.getReturnedDate())){
+			//fine
+			double fineperday = 1.0;
+			int days = (int) Duration.between(entry.getDueDate().atTime(0, 0), entry.getReturnedDate().atTime(0, 0)).toDays();
+			currentMem.addFineEntry(entry, fineperday * days);
+		}
 	}
 	@FXML protected void handleSearchMem(ActionEvent event) throws Exception {
 
